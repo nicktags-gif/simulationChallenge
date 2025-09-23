@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.21">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.8.21" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
 
 <title>Simulation Challenge</title>
@@ -20,65 +22,18 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
-
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="index_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="index_files/libs/quarto-html/anchor.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ea1d7ac60288e0f1efdbc993fd8432ae.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<!-- htmldependencies:E3FAD763 -->
 
 
 </head>
 
-<body class="quarto-light">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -104,164 +59,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="simulation-challenge---monte-carlo-analysis" class="level1">
 <h1>🎲 Simulation Challenge - Monte Carlo Analysis</h1>
 <section id="challenge-overview" class="level2">
-<h2 class="anchored" data-anchor-id="challenge-overview">Challenge Overview</h2>
+<h2>Challenge Overview</h2>
 <p><strong>Your Mission:</strong> Create a comprehensive Quarto document that simulates one or two investment strategies, analyzes the results, and demonstrates your ability to present counter-intuitive findings compellingly. Then render the document to HTML and deploy it via GitHub Pages from a new repository called “simulationChallenge.”</p>
 </section>
 <section id="investment-strategy-setup" class="level2">
-<h2 class="anchored" data-anchor-id="investment-strategy-setup">Investment Strategy Setup</h2>
+<h2>Investment Strategy Setup</h2>
 <section id="strategy-1-single-coin-flip-investment" class="level3">
-<h3 class="anchored" data-anchor-id="strategy-1-single-coin-flip-investment">Strategy 1: Single Coin Flip Investment</h3>
+<h3>Strategy 1: Single Coin Flip Investment</h3>
 <div id="setup-imports" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List, Tuple</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set random seed for reproducibility</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">42</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Libraries imported successfully!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Libraries imported successfully!</code></pre>
 </div>
 </div>
 <div id="strategy-1-single-flip" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> single_coin_flip_strategy(initial_balance: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1000.0</span>, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                            win_probability: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                            win_multiplier: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1.5</span>,  <span class="co"># +50% gain</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                            loss_multiplier: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.6</span>,  <span class="co"># -40% loss</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                            num_simulations: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1000</span>) <span class="op">-&gt;</span> List[<span class="bu">float</span>]:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Simulate the single coin flip investment strategy.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - initial_balance: Starting amount ($1000)</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    - win_probability: Probability of winning (0.5 for fair coin)</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">    - win_multiplier: Multiplier when we win (1.5 = +50%)</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    - loss_multiplier: Multiplier when we lose (0.6 = -40%)</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">    - num_simulations: Number of times to run the simulation</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    - List of final balances for each simulation</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    final_balances <span class="op">=</span> []</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_simulations):</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        balance <span class="op">=</span> initial_balance</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Single coin flip (0 or 1)</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        coin_flip <span class="op">=</span> random.random() <span class="op">&lt;</span> win_probability</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> coin_flip:  <span class="co"># Win: +50%</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            balance <span class="op">*=</span> win_multiplier</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:  <span class="co"># Lose: -40%</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            balance <span class="op">*=</span> loss_multiplier</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        final_balances.append(balance)</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> final_balances</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Test the function</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>test_results <span class="op">=</span> single_coin_flip_strategy(num_simulations<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample results (first 10 simulations): </span><span class="sc">{</span>test_results<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average final balance: $</span><span class="sc">{</span>np<span class="sc">.</span>mean(test_results)<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sample results (first 10 simulations): [600.0, 1500.0, 1500.0, 1500.0, 600.0, 600.0, 600.0, 1500.0, 1500.0, 1500.0]
 Average final balance: $1140.00</code></pre>
 </div>
 </div>
 <div id="strategy-2-multiple-flips" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiple_coin_flips_strategy(initial_balance: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1000.0</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                               win_probability: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                               win_multiplier: <span class="bu">float</span> <span class="op">=</span> <span class="fl">1.5</span>,  <span class="co"># +50% gain</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                               loss_multiplier: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.6</span>,  <span class="co"># -40% loss</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                               num_flips: <span class="bu">int</span> <span class="op">=</span> <span class="dv">10</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                               num_simulations: <span class="bu">int</span> <span class="op">=</span> <span class="dv">1000</span>) <span class="op">-&gt;</span> List[<span class="bu">float</span>]:</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Simulate multiple coin flip investment strategy.</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    - initial_balance: Starting amount ($1000)</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">    - win_probability: Probability of winning each flip (0.5 for fair coin)</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    - win_multiplier: Multiplier when we win (1.5 = +50%)</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">    - loss_multiplier: Multiplier when we lose (0.6 = -40%)</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">    - num_flips: Number of coin flips per simulation</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    - num_simulations: Number of times to run the simulation</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">    - List of final balances for each simulation</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    final_balances <span class="op">=</span> []</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_simulations):</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        balance <span class="op">=</span> initial_balance</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Multiple coin flips</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(num_flips):</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            coin_flip <span class="op">=</span> random.random() <span class="op">&lt;</span> win_probability</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> coin_flip:  <span class="co"># Win: +50%</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                balance <span class="op">*=</span> win_multiplier</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:  <span class="co"># Lose: -40%</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>                balance <span class="op">*=</span> loss_multiplier</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        final_balances.append(balance)</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> final_balances</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Test the function</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>test_results_multiple <span class="op">=</span> multiple_coin_flips_strategy(num_flips<span class="op">=</span><span class="dv">5</span>, num_simulations<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample results (5 flips, first 10 simulations): </span><span class="sc">{</span>test_results_multiple<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average final balance: $</span><span class="sc">{</span>np<span class="sc">.</span>mean(test_results_multiple)<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sample results (5 flips, first 10 simulations): [1215.0, 486.0, 486.0, 1215.0, 194.39999999999998, 77.75999999999999, 3037.5, 3037.5, 1215.0, 1215.0]
 Average final balance: $1217.92</code></pre>
 </div>
 </div>
 <div id="analysis-functions" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_strategy_results(results: List[<span class="bu">float</span>], strategy_name: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Analyze the results of a strategy simulation.</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - results: List of final balances from simulations</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - strategy_name: Name of the strategy for display</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - Dictionary with analysis metrics</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    results_array <span class="op">=</span> np.array(results)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    analysis <span class="op">=</span> {</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">'strategy'</span>: strategy_name,</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">'mean_final_balance'</span>: np.mean(results_array),</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'median_final_balance'</span>: np.median(results_array),</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'std_final_balance'</span>: np.std(results_array),</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'min_final_balance'</span>: np.<span class="bu">min</span>(results_array),</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'max_final_balance'</span>: np.<span class="bu">max</span>(results_array),</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'win_rate'</span>: np.mean(results_array <span class="op">&gt;</span> <span class="dv">1000</span>),  <span class="co"># Percentage above initial $1000</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'total_simulations'</span>: <span class="bu">len</span>(results_array)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> analysis</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_analysis(analysis: <span class="bu">dict</span>):</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Print formatted analysis results."""</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== </span><span class="sc">{</span>analysis[<span class="st">'strategy'</span>]<span class="sc">}</span><span class="ss"> Analysis ==="</span>)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total Simulations: </span><span class="sc">{</span>analysis[<span class="st">'total_simulations'</span>]<span class="sc">:,}</span><span class="ss">"</span>)</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Mean Final Balance: $</span><span class="sc">{</span>analysis[<span class="st">'mean_final_balance'</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Median Final Balance: $</span><span class="sc">{</span>analysis[<span class="st">'median_final_balance'</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Standard Deviation: $</span><span class="sc">{</span>analysis[<span class="st">'std_final_balance'</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Min Final Balance: $</span><span class="sc">{</span>analysis[<span class="st">'min_final_balance'</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Max Final Balance: $</span><span class="sc">{</span>analysis[<span class="st">'max_final_balance'</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Win Rate (% above $1000): </span><span class="sc">{</span>analysis[<span class="st">'win_rate'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Test analysis functions</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>test_analysis <span class="op">=</span> analyze_strategy_results(test_results, <span class="st">"Single Flip Test"</span>)</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>print_analysis(test_analysis)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 === Single Flip Test Analysis ===
@@ -275,71 +97,6 @@ Win Rate (% above $1000): 60.0%</code></pre>
 </div>
 </div>
 <div id="visualization-setup" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_strategy_visualizations(single_flip_results: List[<span class="bu">float</span>], </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                                 multiple_flip_results: List[<span class="bu">float</span>],</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                 num_flips: <span class="bu">int</span> <span class="op">=</span> <span class="dv">10</span>):</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Create visualizations comparing the two strategies.</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">    - single_flip_results: Results from single flip strategy</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">    - multiple_flip_results: Results from multiple flip strategy</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - num_flips: Number of flips used in multiple flip strategy</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set up the plotting style</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    plt.style.use(<span class="st">'seaborn-v0_8'</span>)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">12</span>))</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Histogram comparison</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].hist(single_flip_results, bins<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Single Flip'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].hist(multiple_flip_results, bins<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="ss">f'</span><span class="sc">{</span>num_flips<span class="sc">}</span><span class="ss"> Flips'</span>, color<span class="op">=</span><span class="st">'lightcoral'</span>)</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].axvline(<span class="dv">1000</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Initial $1000'</span>)</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Final Balance ($)'</span>)</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Distribution of Final Balances'</span>)</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].legend()</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Box plot comparison</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    data_to_plot <span class="op">=</span> [single_flip_results, multiple_flip_results]</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    labels <span class="op">=</span> [<span class="st">'Single Flip'</span>, <span class="ss">f'</span><span class="sc">{</span>num_flips<span class="sc">}</span><span class="ss"> Flips'</span>]</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].boxplot(data_to_plot, labels<span class="op">=</span>labels)</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].axhline(<span class="dv">1000</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Initial $1000'</span>)</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Final Balance ($)'</span>)</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Box Plot Comparison'</span>)</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].legend()</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. Cumulative distribution</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    single_sorted <span class="op">=</span> np.sort(single_flip_results)</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    multiple_sorted <span class="op">=</span> np.sort(multiple_flip_results)</span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    single_cdf <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">len</span>(single_sorted) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="bu">len</span>(single_sorted)</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    multiple_cdf <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">len</span>(multiple_sorted) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="bu">len</span>(multiple_sorted)</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].plot(single_sorted, single_cdf, label<span class="op">=</span><span class="st">'Single Flip'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].plot(multiple_sorted, multiple_cdf, label<span class="op">=</span><span class="ss">f'</span><span class="sc">{</span>num_flips<span class="sc">}</span><span class="ss"> Flips'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].axvline(<span class="dv">1000</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Initial $1000'</span>)</span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Final Balance ($)'</span>)</span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Cumulative Probability'</span>)</span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Cumulative Distribution Function'</span>)</span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].legend()</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4. Log scale comparison</span></span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].hist(np.log10(single_flip_results), bins<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Single Flip'</span>, color<span class="op">=</span><span class="st">'skyblue'</span>)</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].hist(np.log10(multiple_flip_results), bins<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="ss">f'</span><span class="sc">{</span>num_flips<span class="sc">}</span><span class="ss"> Flips'</span>, color<span class="op">=</span><span class="st">'lightcoral'</span>)</span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].axvline(np.log10(<span class="dv">1000</span>), color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Initial $1000'</span>)</span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Log10(Final Balance)'</span>)</span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Distribution (Log Scale)'</span>)</span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].legend()</span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Visualization functions defined successfully!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Visualization functions defined successfully!</code></pre>
 </div>
@@ -347,16 +104,16 @@ Win Rate (% above $1000): 60.0%</code></pre>
 </section>
 </section>
 <section id="analysis-questions" class="level2">
-<h2 class="anchored" data-anchor-id="analysis-questions">Analysis Questions</h2>
+<h2>Analysis Questions</h2>
 <section id="expected-value-calculation" class="level3">
-<h3 class="anchored" data-anchor-id="expected-value-calculation">1. Expected Value Calculation</h3>
+<h3>1. Expected Value Calculation</h3>
 <p><strong>What is the expected value of the final balance for the single coin flip strategy?</strong></p>
 <p>For a single coin flip: - Win probability: 50% (0.5) - Win multiplier: 1.5 (+50% gain) - Loss multiplier: 0.6 (-40% loss)</p>
 <p><strong>Expected Value = (0.5 × 1.5) + (0.5 × 0.6) = 0.75 + 0.30 = 1.05</strong></p>
 <p>This means the expected final balance is <strong>$1,050</strong> (5% expected gain per flip).</p>
 </section>
 <section id="expectation-vs-reality" class="level3">
-<h3 class="anchored" data-anchor-id="expectation-vs-reality">2. Expectation vs Reality</h3>
+<h3>2. Expectation vs Reality</h3>
 <p><strong>Is the expected value positive or negative?</strong></p>
 <p>The expected value is <strong>positive</strong> (1.05 &gt; 1.0), meaning we expect to gain money on average. However, this doesn’t guarantee profit in any single simulation due to the high variance of the strategy.</p>
 <p><strong>Key Insight</strong>: While the expected value is positive, the high volatility means individual simulations can vary dramatically from this expectation.</p>
@@ -364,156 +121,6 @@ Win Rate (% above $1000): 60.0%</code></pre>
 <li>Single Simulation:</li>
 </ol>
 <div id="single-simulation-dynamics" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> InvestmentSimulation:</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Object-oriented class for investment simulation with detailed tracking.</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initial_balance<span class="op">=</span><span class="fl">1000.0</span>, win_probability<span class="op">=</span><span class="fl">0.5</span>, </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                 win_multiplier<span class="op">=</span><span class="fl">1.5</span>, loss_multiplier<span class="op">=</span><span class="fl">0.6</span>):</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initial_balance <span class="op">=</span> initial_balance</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.win_probability <span class="op">=</span> win_probability</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.win_multiplier <span class="op">=</span> win_multiplier</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.loss_multiplier <span class="op">=</span> loss_multiplier</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.balance_history <span class="op">=</span> []</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flip_results <span class="op">=</span> []</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flip_numbers <span class="op">=</span> []</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run_single_simulation(<span class="va">self</span>, num_flips<span class="op">=</span><span class="dv">20</span>):</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">        Run a single simulation with detailed tracking of each flip.</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters:</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co">        - num_flips: Number of coin flips to simulate</span></span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns:</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co">        - Dictionary with simulation results</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reset history</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.balance_history <span class="op">=</span> [<span class="va">self</span>.initial_balance]</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flip_results <span class="op">=</span> []</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flip_numbers <span class="op">=</span> []</span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>        current_balance <span class="op">=</span> <span class="va">self</span>.initial_balance</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> flip <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, num_flips <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Simulate coin flip</span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>            coin_flip <span class="op">=</span> random.random() <span class="op">&lt;</span> <span class="va">self</span>.win_probability</span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> coin_flip:  <span class="co"># Win: +50%</span></span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>                current_balance <span class="op">*=</span> <span class="va">self</span>.win_multiplier</span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> <span class="st">"WIN"</span></span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:  <span class="co"># Lose: -40%</span></span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>                current_balance <span class="op">*=</span> <span class="va">self</span>.loss_multiplier</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> <span class="st">"LOSS"</span></span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Record results</span></span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.balance_history.append(current_balance)</span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.flip_results.append(result)</span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.flip_numbers.append(flip)</span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {</span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>            <span class="st">'final_balance'</span>: current_balance,</span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>            <span class="st">'total_gain_loss'</span>: current_balance <span class="op">-</span> <span class="va">self</span>.initial_balance,</span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>            <span class="st">'total_gain_loss_pct'</span>: ((current_balance <span class="op">-</span> <span class="va">self</span>.initial_balance) <span class="op">/</span> <span class="va">self</span>.initial_balance) <span class="op">*</span> <span class="dv">100</span>,</span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>            <span class="st">'wins'</span>: <span class="va">self</span>.flip_results.count(<span class="st">"WIN"</span>),</span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>            <span class="st">'losses'</span>: <span class="va">self</span>.flip_results.count(<span class="st">"LOSS"</span>),</span>
-<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>            <span class="st">'win_rate'</span>: <span class="va">self</span>.flip_results.count(<span class="st">"WIN"</span>) <span class="op">/</span> <span class="bu">len</span>(<span class="va">self</span>.flip_results)</span>
-<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> plot_balance_dynamics(<span class="va">self</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>), style<span class="op">=</span><span class="st">'seaborn-v0_8'</span>):</span>
-<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
-<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="co">        Create an object-oriented matplotlib visualization of balance dynamics.</span></span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters:</span></span>
-<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="co">        - figsize: Figure size tuple</span></span>
-<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a><span class="co">        - style: Matplotlib style</span></span>
-<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
-<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>        plt.style.use(style)</span>
-<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create figure and axis objects</span></span>
-<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>        fig <span class="op">=</span> plt.Figure(figsize<span class="op">=</span>figsize)</span>
-<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>        gs <span class="op">=</span> fig.add_gridspec(<span class="dv">2</span>, <span class="dv">2</span>, height_ratios<span class="op">=</span>[<span class="dv">2</span>, <span class="dv">1</span>], width_ratios<span class="op">=</span>[<span class="dv">3</span>, <span class="dv">1</span>], </span>
-<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a>                             hspace<span class="op">=</span><span class="fl">0.3</span>, wspace<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Main balance plot</span></span>
-<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a>        ax_main <span class="op">=</span> fig.add_subplot(gs[<span class="dv">0</span>, :])</span>
-<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>        ax_main.plot(<span class="va">self</span>.flip_numbers, <span class="va">self</span>.balance_history[<span class="dv">1</span>:], </span>
-<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>                    linewidth<span class="op">=</span><span class="fl">2.5</span>, color<span class="op">=</span><span class="st">'#2E86AB'</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>        ax_main.axhline(y<span class="op">=</span><span class="va">self</span>.initial_balance, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
-<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.7</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Initial Balance ($</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>initial_balance<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>        ax_main.set_xlabel(<span class="st">'Coin Flip Number'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>        ax_main.set_ylabel(<span class="st">'Account Balance ($)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a>        ax_main.set_title(<span class="st">'Account Balance Dynamics Over Time'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>        ax_main.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a>        ax_main.legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Color-code the line based on wins/losses</span></span>
-<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i, (flip_num, balance, result) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(<span class="va">self</span>.flip_numbers, </span>
-<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>                                                          <span class="va">self</span>.balance_history[<span class="dv">1</span>:], </span>
-<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>                                                          <span class="va">self</span>.flip_results)):</span>
-<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>            color <span class="op">=</span> <span class="st">'#28A745'</span> <span class="cf">if</span> result <span class="op">==</span> <span class="st">'WIN'</span> <span class="cf">else</span> <span class="st">'#DC3545'</span></span>
-<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>            ax_main.scatter(flip_num, balance, color<span class="op">=</span>color, s<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Balance distribution histogram</span></span>
-<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>        ax_hist <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>, <span class="dv">0</span>])</span>
-<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>        ax_hist.hist(<span class="va">self</span>.balance_history[<span class="dv">1</span>:], bins<span class="op">=</span><span class="dv">15</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, </span>
-<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a>                    edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a>        ax_hist.axvline(<span class="va">self</span>.initial_balance, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
-<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.7</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Initial Balance'</span>)</span>
-<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>        ax_hist.set_xlabel(<span class="st">'Account Balance ($)'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>        ax_hist.set_ylabel(<span class="st">'Frequency'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>        ax_hist.set_title(<span class="st">'Balance Distribution'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>        ax_hist.legend(fontsize<span class="op">=</span><span class="dv">8</span>)</span>
-<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>        ax_hist.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Statistics panel</span></span>
-<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>        ax_stats <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>, <span class="dv">1</span>])</span>
-<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a>        ax_stats.axis(<span class="st">'off'</span>)</span>
-<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate statistics</span></span>
-<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>        final_balance <span class="op">=</span> <span class="va">self</span>.balance_history[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a>        total_change <span class="op">=</span> final_balance <span class="op">-</span> <span class="va">self</span>.initial_balance</span>
-<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>        total_change_pct <span class="op">=</span> (total_change <span class="op">/</span> <span class="va">self</span>.initial_balance) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a>        wins <span class="op">=</span> <span class="va">self</span>.flip_results.count(<span class="st">"WIN"</span>)</span>
-<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>        losses <span class="op">=</span> <span class="va">self</span>.flip_results.count(<span class="st">"LOSS"</span>)</span>
-<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a>        win_rate <span class="op">=</span> wins <span class="op">/</span> <span class="bu">len</span>(<span class="va">self</span>.flip_results) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Create statistics text</span></span>
-<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>        stats_text <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a><span class="ss">        SIMULATION STATISTICS</span></span>
-<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span></span>
-<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="ss">        Initial Balance: $</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>initial_balance<span class="sc">:,.0f}</span></span>
-<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a><span class="ss">        Final Balance: $</span><span class="sc">{</span>final_balance<span class="sc">:,.2f}</span></span>
-<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span></span>
-<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a><span class="ss">        Total Change: $</span><span class="sc">{</span>total_change<span class="sc">:+,.2f}</span></span>
-<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a><span class="ss">        Change %: </span><span class="sc">{</span>total_change_pct<span class="sc">:+.1f}</span><span class="ss">%</span></span>
-<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span></span>
-<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a><span class="ss">        Wins: </span><span class="sc">{</span>wins<span class="sc">}</span></span>
-<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a><span class="ss">        Losses: </span><span class="sc">{</span>losses<span class="sc">}</span></span>
-<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a><span class="ss">        Win Rate: </span><span class="sc">{</span>win_rate<span class="sc">:.1f}</span><span class="ss">%</span></span>
-<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a><span class="ss">        </span></span>
-<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a><span class="ss">        Max Balance: $</span><span class="sc">{</span><span class="bu">max</span>(<span class="va">self</span>.balance_history)<span class="sc">:,.2f}</span></span>
-<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a><span class="ss">        Min Balance: $</span><span class="sc">{</span><span class="bu">min</span>(<span class="va">self</span>.balance_history)<span class="sc">:,.2f}</span></span>
-<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span></span>
-<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>        ax_stats.text(<span class="fl">0.05</span>, <span class="fl">0.95</span>, stats_text, transform<span class="op">=</span>ax_stats.transAxes, </span>
-<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a>                     fontsize<span class="op">=</span><span class="dv">9</span>, verticalalignment<span class="op">=</span><span class="st">'top'</span>, fontfamily<span class="op">=</span><span class="st">'monospace'</span>,</span>
-<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>                     bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">'round,pad=0.5'</span>, facecolor<span class="op">=</span><span class="st">'lightgray'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>))</span>
-<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> fig</span>
-<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a single simulation</span></span>
-<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>simulation <span class="op">=</span> InvestmentSimulation()</span>
-<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> simulation.run_single_simulation(num_flips<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=== SINGLE SIMULATION RESULTS ==="</span>)</span>
-<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Initial Balance: $</span><span class="sc">{</span>simulation<span class="sc">.</span>initial_balance<span class="sc">:,.0f}</span><span class="ss">"</span>)</span>
-<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Final Balance: $</span><span class="sc">{</span>results[<span class="st">'final_balance'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total Change: $</span><span class="sc">{</span>results[<span class="st">'total_gain_loss'</span>]<span class="sc">:+,.2f}</span><span class="ss"> (</span><span class="sc">{</span>results[<span class="st">'total_gain_loss_pct'</span>]<span class="sc">:+.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Wins: </span><span class="sc">{</span>results[<span class="st">'wins'</span>]<span class="sc">}</span><span class="ss">, Losses: </span><span class="sc">{</span>results[<span class="st">'losses'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Win Rate: </span><span class="sc">{</span>results[<span class="st">'win_rate'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Flip Results: </span><span class="sc">{</span><span class="st">' '</span><span class="sc">.</span>join(simulation.flip_results)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== SINGLE SIMULATION RESULTS ===
 Initial Balance: $1,000
@@ -525,72 +132,6 @@ Flip Results: LOSS LOSS LOSS LOSS LOSS LOSS WIN WIN WIN WIN WIN LOSS LOSS WIN LO
 </div>
 </div>
 <div id="cell-create-balance-visualization" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the object-oriented matplotlib visualization</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> simulation.plot_balance_dynamics(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the figure</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print additional insights</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== BALANCE DYNAMICS INSIGHTS ==="</span>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Peak Balance: $</span><span class="sc">{</span><span class="bu">max</span>(simulation.balance_history)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Lowest Balance: $</span><span class="sc">{</span><span class="bu">min</span>(simulation.balance_history)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Largest Single Gain: $</span><span class="sc">{</span><span class="bu">max</span>([simulation.balance_history[i<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> simulation.balance_history[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(simulation.balance_history)<span class="op">-</span><span class="dv">1</span>)])<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Largest Single Loss: $</span><span class="sc">{</span><span class="bu">min</span>([simulation.balance_history[i<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> simulation.balance_history[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(simulation.balance_history)<span class="op">-</span><span class="dv">1</span>)])<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a matplotlib visualization of balance changes over time</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">10</span>))</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 1: Balance progression over time</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>flip_numbers <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="bu">len</span>(simulation.balance_history)))</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>ax1.plot(flip_numbers, simulation.balance_history, <span class="st">'o-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, markersize<span class="op">=</span><span class="dv">6</span>, color<span class="op">=</span><span class="st">'#2E86AB'</span>)</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>ax1.axhline(y<span class="op">=</span>simulation.initial_balance, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Initial Balance ($</span><span class="sc">{</span>simulation<span class="sc">.</span>initial_balance<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">'Coin Flip Number'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Account Balance ($)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Account Balance Progression Over Time'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>ax1.legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Color-code points based on wins/losses</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (flip_num, balance, result) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(flip_numbers[<span class="dv">1</span>:], simulation.balance_history[<span class="dv">1</span>:], simulation.flip_results)):</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    color <span class="op">=</span> <span class="st">'#28A745'</span> <span class="cf">if</span> result <span class="op">==</span> <span class="st">'WIN'</span> <span class="cf">else</span> <span class="st">'#DC3545'</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    ax1.scatter(flip_num, balance, color<span class="op">=</span>color, s<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2: Balance changes (gains/losses) per flip</span></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>balance_changes <span class="op">=</span> []</span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>change_percentages <span class="op">=</span> []</span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(simulation.balance_history)):</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    change <span class="op">=</span> simulation.balance_history[i] <span class="op">-</span> simulation.balance_history[i<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    change_pct <span class="op">=</span> (change <span class="op">/</span> simulation.balance_history[i<span class="op">-</span><span class="dv">1</span>]) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    balance_changes.append(change)</span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    change_percentages.append(change_pct)</span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>flip_numbers_changes <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(simulation.balance_history)))</span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'#28A745'</span> <span class="cf">if</span> change <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'#DC3545'</span> <span class="cf">for</span> change <span class="kw">in</span> balance_changes]</span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>ax2.bar(flip_numbers_changes, balance_changes, color<span class="op">=</span>colors, alpha<span class="op">=</span><span class="fl">0.7</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>ax2.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Coin Flip Number'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'Balance Change ($)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Balance Changes Per Coin Flip'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, axis<span class="op">=</span><span class="st">'y'</span>)</span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Add value labels on bars</span></span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (flip_num, change, change_pct) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(flip_numbers_changes, balance_changes, change_percentages)):</span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>    ax2.text(flip_num, change <span class="op">+</span> (<span class="dv">5</span> <span class="cf">if</span> change <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="op">-</span><span class="dv">15</span>), <span class="ss">f'$</span><span class="sc">{</span>change<span class="sc">:+.0f}</span><span class="ch">\n</span><span class="ss">(</span><span class="sc">{</span>change_pct<span class="sc">:+.1f}</span><span class="ss">%)'</span>, </span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>             ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span> <span class="cf">if</span> change <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'top'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary statistics</span></span>
-<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== BALANCE CHANGES SUMMARY ==="</span>)</span>
-<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Largest Single Gain: $</span><span class="sc">{</span><span class="bu">max</span>(balance_changes)<span class="sc">:,.2f}</span><span class="ss"> (</span><span class="sc">{</span><span class="bu">max</span>(change_percentages)<span class="sc">:+.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Largest Single Loss: $</span><span class="sc">{</span><span class="bu">min</span>(balance_changes)<span class="sc">:,.2f}</span><span class="ss"> (</span><span class="sc">{</span><span class="bu">min</span>(change_percentages)<span class="sc">:+.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Change per Flip: $</span><span class="sc">{</span>np<span class="sc">.</span>mean(balance_changes)<span class="sc">:,.2f}</span><span class="ss"> (</span><span class="sc">{</span>np<span class="sc">.</span>mean(change_percentages)<span class="sc">:+.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total Gains: $</span><span class="sc">{</span><span class="bu">sum</span>([c <span class="cf">for</span> c <span class="kw">in</span> balance_changes <span class="cf">if</span> c <span class="op">&gt;</span> <span class="dv">0</span>])<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total Losses: $</span><span class="sc">{</span><span class="bu">sum</span>([c <span class="cf">for</span> c <span class="kw">in</span> balance_changes <span class="cf">if</span> c <span class="op">&lt;</span> <span class="dv">0</span>])<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Net Change: $</span><span class="sc">{</span><span class="bu">sum</span>(balance_changes)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 === BALANCE DYNAMICS INSIGHTS ===
@@ -601,8 +142,8 @@ Largest Single Loss: $-400.00</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="index_files/figure-html/create-balance-visualization-output-2.png" id="create-balance-visualization" width="1142" height="949" class="figure-img"></p>
+<figure>
+<p><img src="index_files/figure-html/create-balance-visualization-output-2.png" id="create-balance-visualization" width="1142" height="949" /></p>
 </figure>
 </div>
 </div>
@@ -617,55 +158,13 @@ Total Losses: $-1,256.62
 Net Change: $-885.21</code></pre>
 </div>
 </div>
-<p>We ended up with a net change of $793.61. I would be happy with this result, as we were able to gain exactly the amount we expected to. With the 15 flips, we got exactly the expected value and the success rate was 60%.</p>
+<p>We ended up with a net change of $-885.21. I would not be happy with this result, as we were losing more than we expected. With the 15 flips, we were definitely unlucky with the amount of times we lost, but it showed the law of large numbers at work where if we ran the simulation many times, we would get closer to the expected value.</p>
 </section>
 </section>
 <section id="simulations-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="simulations-analysis">100 Simulations Analysis</h2>
+<h2>100 Simulations Analysis</h2>
 <p>Now let’s run 100 simulations to get a better understanding of the distribution of outcomes and create a probability distribution plot of final account balances.</p>
 <div id="hundred-simulations" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_multiple_simulations(num_simulations<span class="op">=</span><span class="dv">100</span>, num_flips<span class="op">=</span><span class="dv">15</span>, initial_balance<span class="op">=</span><span class="fl">1000.0</span>):</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Run multiple simulations and collect final balances.</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - num_simulations: Number of simulations to run</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - num_flips: Number of coin flips per simulation</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">    - initial_balance: Starting balance</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">    - List of final balances from all simulations</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">    - List of simulation objects for detailed analysis</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    final_balances <span class="op">=</span> []</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    simulation_objects <span class="op">=</span> []</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_simulations):</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Set individual seed for each simulation to ensure reproducibility</span></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        np.random.seed(<span class="dv">42</span> <span class="op">+</span> i)</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>        random.seed(<span class="dv">42</span> <span class="op">+</span> i)</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        sim <span class="op">=</span> InvestmentSimulation(initial_balance<span class="op">=</span>initial_balance)</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> sim.run_single_simulation(num_flips<span class="op">=</span>num_flips)</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>        final_balances.append(results[<span class="st">'final_balance'</span>])</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>        simulation_objects.append(sim)</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> final_balances, simulation_objects</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Run 100 simulations</span></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Running 100 simulations..."</span>)</span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducible results</span></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">42</span>)</span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>final_balances_100, sim_objects_100 <span class="op">=</span> run_multiple_simulations(num_simulations<span class="op">=</span><span class="dv">100</span>, num_flips<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Completed </span><span class="sc">{</span><span class="bu">len</span>(final_balances_100)<span class="sc">}</span><span class="ss"> simulations"</span>)</span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average final balance: $</span><span class="sc">{</span>np<span class="sc">.</span>mean(final_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Median final balance: $</span><span class="sc">{</span>np<span class="sc">.</span>median(final_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Standard deviation: $</span><span class="sc">{</span>np<span class="sc">.</span>std(final_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Min final balance: $</span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">min</span>(final_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Max final balance: $</span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(final_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Running 100 simulations...
 Completed 100 simulations
@@ -677,177 +176,21 @@ Max final balance: $28,025.21</code></pre>
 </div>
 </div>
 <div id="cell-probability-distribution-analysis" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_probability_distribution_plot(final_balances, initial_balance<span class="op">=</span><span class="fl">1000.0</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>)):</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Create a comprehensive probability distribution analysis with multiple visualizations.</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - final_balances: List of final balances from simulations</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - initial_balance: Starting balance for reference</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">    - figsize: Figure size tuple</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    plt.style.use(<span class="st">'seaborn-v0_8'</span>)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>figsize)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert to numpy array for easier calculations</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    balances <span class="op">=</span> np.array(final_balances)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Histogram with probability density</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    n, bins, patches <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">0</span>].hist(balances, bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, </span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>                                      edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, density<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].axvline(initial_balance, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="ss">f'Initial Balance ($</span><span class="sc">{</span>initial_balance<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].axvline(np.mean(balances), color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="ss">f'Mean ($</span><span class="sc">{</span>np<span class="sc">.</span>mean(balances)<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Final Account Balance ($)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Probability Density'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Probability Distribution of Final Account Balances'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Box plot with detailed statistics</span></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    box_plot <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">1</span>].boxplot([balances], labels<span class="op">=</span>[<span class="st">'Final Balances'</span>], patch_artist<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    box_plot[<span class="st">'boxes'</span>][<span class="dv">0</span>].set_facecolor(<span class="st">'lightblue'</span>)</span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].axhline(initial_balance, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="ss">f'Initial Balance ($</span><span class="sc">{</span>initial_balance<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Final Account Balance ($)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Distribution Summary (Box Plot)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. Cumulative distribution function</span></span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>    sorted_balances <span class="op">=</span> np.sort(balances)</span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>    cumulative_prob <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">len</span>(sorted_balances) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="bu">len</span>(sorted_balances)</span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].plot(sorted_balances, cumulative_prob, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'purple'</span>)</span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].axvline(initial_balance, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="ss">f'Initial Balance ($</span><span class="sc">{</span>initial_balance<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].axhline(<span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'50th Percentile'</span>)</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Final Account Balance ($)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Cumulative Probability'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Cumulative Distribution Function'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4. Log scale distribution (to better show the wide range)</span></span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>    log_balances <span class="op">=</span> np.log10(balances)</span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].hist(log_balances, bins<span class="op">=</span><span class="dv">25</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'orange'</span>, </span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>                    edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, density<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].axvline(np.log10(initial_balance), color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="ss">f'Initial Balance ($</span><span class="sc">{</span>initial_balance<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].axvline(np.log10(np.mean(balances)), color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>                       alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="ss">f'Mean ($</span><span class="sc">{</span>np<span class="sc">.</span>mean(balances)<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Log10(Final Account Balance)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Probability Density'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Distribution (Log Scale)'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the probability distribution plot</span></span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>fig_dist <span class="op">=</span> create_probability_distribution_plot(final_balances_100)</span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/j7/llh6qqjs2pg4w004y7mqkc9m0000gn/T/ipykernel_58074/52686530.py:30: MatplotlibDeprecationWarning:
+<pre><code>/var/folders/j7/llh6qqjs2pg4w004y7mqkc9m0000gn/T/ipykernel_60117/52686530.py:30: MatplotlibDeprecationWarning:
 
-The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
 </code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="index_files/figure-html/probability-distribution-analysis-output-2.png" id="probability-distribution-analysis" width="1430" height="949" class="figure-img"></p>
+<figure>
+<p><img src="index_files/figure-html/probability-distribution-analysis-output-2.png" id="probability-distribution-analysis" width="1430" height="949" /></p>
 </figure>
 </div>
 </div>
 </div>
 <div id="detailed-statistics-analysis" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analyze_simulation_results(final_balances, initial_balance<span class="op">=</span><span class="fl">1000.0</span>):</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Provide detailed statistical analysis of simulation results.</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - final_balances: List of final balances from simulations</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - initial_balance: Starting balance for reference</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - Dictionary with comprehensive statistics</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    balances <span class="op">=</span> np.array(final_balances)</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Basic statistics</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    mean_balance <span class="op">=</span> np.mean(balances)</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    median_balance <span class="op">=</span> np.median(balances)</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    std_balance <span class="op">=</span> np.std(balances)</span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    min_balance <span class="op">=</span> np.<span class="bu">min</span>(balances)</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    max_balance <span class="op">=</span> np.<span class="bu">max</span>(balances)</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Percentiles</span></span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    percentiles <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">95</span>]</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    percentile_values <span class="op">=</span> np.percentile(balances, percentiles)</span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Win/loss analysis</span></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>    above_initial <span class="op">=</span> np.<span class="bu">sum</span>(balances <span class="op">&gt;</span> initial_balance)</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>    below_initial <span class="op">=</span> np.<span class="bu">sum</span>(balances <span class="op">&lt;</span> initial_balance)</span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>    equal_initial <span class="op">=</span> np.<span class="bu">sum</span>(balances <span class="op">==</span> initial_balance)</span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Risk metrics</span></span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    losses <span class="op">=</span> balances[balances <span class="op">&lt;</span> initial_balance]</span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    gains <span class="op">=</span> balances[balances <span class="op">&gt;</span> initial_balance]</span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>    avg_loss <span class="op">=</span> np.mean(losses) <span class="cf">if</span> <span class="bu">len</span>(losses) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>    avg_gain <span class="op">=</span> np.mean(gains) <span class="cf">if</span> <span class="bu">len</span>(gains) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Expected value comparison</span></span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>    expected_value_per_flip <span class="op">=</span> <span class="fl">1.05</span>  <span class="co"># From our earlier calculation</span></span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>    theoretical_expected <span class="op">=</span> initial_balance <span class="op">*</span> (expected_value_per_flip <span class="op">**</span> <span class="dv">15</span>)  <span class="co"># 15 flips</span></span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>    analysis <span class="op">=</span> {</span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">'total_simulations'</span>: <span class="bu">len</span>(balances),</span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">'mean_balance'</span>: mean_balance,</span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">'median_balance'</span>: median_balance,</span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>        <span class="st">'std_balance'</span>: std_balance,</span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>        <span class="st">'min_balance'</span>: min_balance,</span>
-<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>        <span class="st">'max_balance'</span>: max_balance,</span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>        <span class="st">'percentiles'</span>: <span class="bu">dict</span>(<span class="bu">zip</span>(percentiles, percentile_values)),</span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>        <span class="st">'above_initial'</span>: above_initial,</span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>        <span class="st">'below_initial'</span>: below_initial,</span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>        <span class="st">'equal_initial'</span>: equal_initial,</span>
-<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>        <span class="st">'win_rate'</span>: above_initial <span class="op">/</span> <span class="bu">len</span>(balances),</span>
-<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>        <span class="st">'avg_loss'</span>: avg_loss,</span>
-<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a>        <span class="st">'avg_gain'</span>: avg_gain,</span>
-<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>        <span class="st">'theoretical_expected'</span>: theoretical_expected,</span>
-<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a>        <span class="st">'actual_vs_theoretical'</span>: mean_balance <span class="op">/</span> theoretical_expected</span>
-<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> analysis</span>
-<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform detailed analysis</span></span>
-<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>analysis_100 <span class="op">=</span> analyze_simulation_results(final_balances_100)</span>
-<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=== DETAILED STATISTICAL ANALYSIS ==="</span>)</span>
-<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total Simulations: </span><span class="sc">{</span>analysis_100[<span class="st">'total_simulations'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean Final Balance: $</span><span class="sc">{</span>analysis_100[<span class="st">'mean_balance'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Median Final Balance: $</span><span class="sc">{</span>analysis_100[<span class="st">'median_balance'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Standard Deviation: $</span><span class="sc">{</span>analysis_100[<span class="st">'std_balance'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Min Final Balance: $</span><span class="sc">{</span>analysis_100[<span class="st">'min_balance'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Max Final Balance: $</span><span class="sc">{</span>analysis_100[<span class="st">'max_balance'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Win Rate (% above $1000): </span><span class="sc">{</span>analysis_100[<span class="st">'win_rate'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Loss (when losing): $</span><span class="sc">{</span>analysis_100[<span class="st">'avg_loss'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Gain (when winning): $</span><span class="sc">{</span>analysis_100[<span class="st">'avg_gain'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Theoretical Expected Value: $</span><span class="sc">{</span>analysis_100[<span class="st">'theoretical_expected'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Actual vs Theoretical: </span><span class="sc">{</span>analysis_100[<span class="st">'actual_vs_theoretical'</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== PERCENTILE ANALYSIS ==="</span>)</span>
-<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pct, value <span class="kw">in</span> analysis_100[<span class="st">'percentiles'</span>].items():</span>
-<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>pct<span class="sc">}</span><span class="ss">th Percentile: $</span><span class="sc">{</span>value<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== RISK ASSESSMENT ==="</span>)</span>
-<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability of losing money: </span><span class="sc">{</span>analysis_100[<span class="st">'below_initial'</span>]<span class="op">/</span>analysis_100[<span class="st">'total_simulations'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability of gaining money: </span><span class="sc">{</span>analysis_100[<span class="st">'above_initial'</span>]<span class="op">/</span>analysis_100[<span class="st">'total_simulations'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Largest loss: $</span><span class="sc">{</span>analysis_100[<span class="st">'min_balance'</span>] <span class="op">-</span> <span class="dv">1000</span><span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Largest gain: $</span><span class="sc">{</span>analysis_100[<span class="st">'max_balance'</span>] <span class="op">-</span> <span class="dv">1000</span><span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== DETAILED STATISTICAL ANALYSIS ===
 Total Simulations: 100
@@ -879,147 +222,6 @@ Largest gain: $27,025.21</code></pre>
 </div>
 </div>
 <div id="cell-probability-and-standard-deviation-analysis" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_detailed_probabilities(final_balances, initial_balance<span class="op">=</span><span class="fl">1000.0</span>):</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate detailed probability metrics and standard deviation analysis.</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - final_balances: List of final balances from simulations</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - initial_balance: Starting balance for reference</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">    - Dictionary with detailed probability metrics</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    balances <span class="op">=</span> np.array(final_balances)</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Basic statistics</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    mean_balance <span class="op">=</span> np.mean(balances)</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    std_balance <span class="op">=</span> np.std(balances)</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    median_balance <span class="op">=</span> np.median(balances)</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Win/Loss probabilities</span></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    wins <span class="op">=</span> balances[balances <span class="op">&gt;</span> initial_balance]</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    losses <span class="op">=</span> balances[balances <span class="op">&lt;</span> initial_balance]</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    ties <span class="op">=</span> balances[balances <span class="op">==</span> initial_balance]</span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    prob_win <span class="op">=</span> <span class="bu">len</span>(wins) <span class="op">/</span> <span class="bu">len</span>(balances)</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    prob_loss <span class="op">=</span> <span class="bu">len</span>(losses) <span class="op">/</span> <span class="bu">len</span>(balances)</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    prob_tie <span class="op">=</span> <span class="bu">len</span>(ties) <span class="op">/</span> <span class="bu">len</span>(balances)</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Standard deviation analysis</span></span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    one_std_above <span class="op">=</span> mean_balance <span class="op">+</span> std_balance</span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    one_std_below <span class="op">=</span> mean_balance <span class="op">-</span> std_balance</span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    two_std_above <span class="op">=</span> mean_balance <span class="op">+</span> (<span class="dv">2</span> <span class="op">*</span> std_balance)</span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    two_std_below <span class="op">=</span> mean_balance <span class="op">-</span> (<span class="dv">2</span> <span class="op">*</span> std_balance)</span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Count simulations within standard deviations</span></span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    within_one_std <span class="op">=</span> np.<span class="bu">sum</span>((balances <span class="op">&gt;=</span> one_std_below) <span class="op">&amp;</span> (balances <span class="op">&lt;=</span> one_std_above))</span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    within_two_std <span class="op">=</span> np.<span class="bu">sum</span>((balances <span class="op">&gt;=</span> two_std_below) <span class="op">&amp;</span> (balances <span class="op">&lt;=</span> two_std_above))</span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    prob_within_one_std <span class="op">=</span> within_one_std <span class="op">/</span> <span class="bu">len</span>(balances)</span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>    prob_within_two_std <span class="op">=</span> within_two_std <span class="op">/</span> <span class="bu">len</span>(balances)</span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate how far one std is from mean in percentage terms</span></span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>    std_as_pct_of_mean <span class="op">=</span> (std_balance <span class="op">/</span> mean_balance) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Risk metrics</span></span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(losses) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>        avg_loss_pct <span class="op">=</span> np.mean((losses <span class="op">-</span> initial_balance) <span class="op">/</span> initial_balance) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>        max_loss_pct <span class="op">=</span> np.<span class="bu">min</span>((losses <span class="op">-</span> initial_balance) <span class="op">/</span> initial_balance) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>        avg_loss_pct <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>        max_loss_pct <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(wins) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>        avg_gain_pct <span class="op">=</span> np.mean((wins <span class="op">-</span> initial_balance) <span class="op">/</span> initial_balance) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>        max_gain_pct <span class="op">=</span> np.<span class="bu">max</span>((wins <span class="op">-</span> initial_balance) <span class="op">/</span> initial_balance) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>        avg_gain_pct <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>        max_gain_pct <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
-<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a>        <span class="st">'mean_balance'</span>: mean_balance,</span>
-<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a>        <span class="st">'std_balance'</span>: std_balance,</span>
-<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a>        <span class="st">'median_balance'</span>: median_balance,</span>
-<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>        <span class="st">'prob_win'</span>: prob_win,</span>
-<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a>        <span class="st">'prob_loss'</span>: prob_loss,</span>
-<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a>        <span class="st">'prob_tie'</span>: prob_tie,</span>
-<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a>        <span class="st">'one_std_above'</span>: one_std_above,</span>
-<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a>        <span class="st">'one_std_below'</span>: one_std_below,</span>
-<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a>        <span class="st">'two_std_above'</span>: two_std_above,</span>
-<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a>        <span class="st">'two_std_below'</span>: two_std_below,</span>
-<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>        <span class="st">'prob_within_one_std'</span>: prob_within_one_std,</span>
-<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a>        <span class="st">'prob_within_two_std'</span>: prob_within_two_std,</span>
-<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>        <span class="st">'std_as_pct_of_mean'</span>: std_as_pct_of_mean,</span>
-<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>        <span class="st">'avg_loss_pct'</span>: avg_loss_pct,</span>
-<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a>        <span class="st">'max_loss_pct'</span>: max_loss_pct,</span>
-<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a>        <span class="st">'avg_gain_pct'</span>: avg_gain_pct,</span>
-<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a>        <span class="st">'max_gain_pct'</span>: max_gain_pct,</span>
-<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a>        <span class="st">'total_simulations'</span>: <span class="bu">len</span>(balances)</span>
-<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate detailed probabilities</span></span>
-<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a>prob_analysis <span class="op">=</span> calculate_detailed_probabilities(final_balances_100)</span>
-<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=== PROBABILITY ANALYSIS ==="</span>)</span>
-<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability of WINNING money: </span><span class="sc">{</span>prob_analysis[<span class="st">'prob_win'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability of LOSING money: </span><span class="sc">{</span>prob_analysis[<span class="st">'prob_loss'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability of BREAKING EVEN: </span><span class="sc">{</span>prob_analysis[<span class="st">'prob_tie'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== STANDARD DEVIATION ANALYSIS ==="</span>)</span>
-<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean Final Balance: $</span><span class="sc">{</span>prob_analysis[<span class="st">'mean_balance'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Standard Deviation: $</span><span class="sc">{</span>prob_analysis[<span class="st">'std_balance'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Standard Deviation as % of Mean: </span><span class="sc">{</span>prob_analysis[<span class="st">'std_as_pct_of_mean'</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f""</span>)</span>
-<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"One Standard Deviation Above Mean: $</span><span class="sc">{</span>prob_analysis[<span class="st">'one_std_above'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"One Standard Deviation Below Mean: $</span><span class="sc">{</span>prob_analysis[<span class="st">'one_std_below'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f""</span>)</span>
-<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Two Standard Deviations Above Mean: $</span><span class="sc">{</span>prob_analysis[<span class="st">'two_std_above'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Two Standard Deviations Below Mean: $</span><span class="sc">{</span>prob_analysis[<span class="st">'two_std_below'</span>]<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== DISTRIBUTION WITHIN STANDARD DEVIATIONS ==="</span>)</span>
-<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Simulations within 1 standard deviation: </span><span class="sc">{</span>prob_analysis[<span class="st">'prob_within_one_std'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Simulations within 2 standard deviations: </span><span class="sc">{</span>prob_analysis[<span class="st">'prob_within_two_std'</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== GAIN/LOSS PERCENTAGE ANALYSIS ==="</span>)</span>
-<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Loss (when losing): </span><span class="sc">{</span>prob_analysis[<span class="st">'avg_loss_pct'</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Maximum Loss: </span><span class="sc">{</span>prob_analysis[<span class="st">'max_loss_pct'</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Gain (when winning): </span><span class="sc">{</span>prob_analysis[<span class="st">'avg_gain_pct'</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Maximum Gain: </span><span class="sc">{</span>prob_analysis[<span class="st">'max_gain_pct'</span>]<span class="sc">:.1f}</span><span class="ss">%"</span>)</span>
-<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization of standard deviation ranges</span></span>
-<span id="cb22-110"><a href="#cb22-110" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
-<span id="cb22-111"><a href="#cb22-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-112"><a href="#cb22-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 1: Histogram with standard deviation bands</span></span>
-<span id="cb22-113"><a href="#cb22-113" aria-hidden="true" tabindex="-1"></a>ax1.hist(final_balances_100, bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, density<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb22-114"><a href="#cb22-114" aria-hidden="true" tabindex="-1"></a>ax1.axvline(prob_analysis[<span class="st">'mean_balance'</span>], color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Mean ($</span><span class="sc">{</span>prob_analysis[<span class="st">"mean_balance"</span>]<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb22-115"><a href="#cb22-115" aria-hidden="true" tabindex="-1"></a>ax1.axvline(prob_analysis[<span class="st">'one_std_above'</span>], color<span class="op">=</span><span class="st">'orange'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'+1 Std ($</span><span class="sc">{</span>prob_analysis[<span class="st">"one_std_above"</span>]<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb22-116"><a href="#cb22-116" aria-hidden="true" tabindex="-1"></a>ax1.axvline(prob_analysis[<span class="st">'one_std_below'</span>], color<span class="op">=</span><span class="st">'orange'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'-1 Std ($</span><span class="sc">{</span>prob_analysis[<span class="st">"one_std_below"</span>]<span class="sc">:,.0f}</span><span class="ss">)'</span>)</span>
-<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a>ax1.axvline(<span class="dv">1000</span>, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Initial Balance ($1,000)'</span>)</span>
-<span id="cb22-118"><a href="#cb22-118" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">'Final Account Balance ($)'</span>)</span>
-<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Probability Density'</span>)</span>
-<span id="cb22-120"><a href="#cb22-120" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Distribution with Standard Deviation Bands'</span>)</span>
-<span id="cb22-121"><a href="#cb22-121" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
-<span id="cb22-122"><a href="#cb22-122" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb22-123"><a href="#cb22-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2: Win/Loss probability pie chart</span></span>
-<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'Wins'</span>, <span class="st">'Losses'</span>, <span class="st">'Ties'</span>]</span>
-<span id="cb22-126"><a href="#cb22-126" aria-hidden="true" tabindex="-1"></a>sizes <span class="op">=</span> [prob_analysis[<span class="st">'prob_win'</span>], prob_analysis[<span class="st">'prob_loss'</span>], prob_analysis[<span class="st">'prob_tie'</span>]]</span>
-<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'lightgreen'</span>, <span class="st">'lightcoral'</span>, <span class="st">'lightblue'</span>]</span>
-<span id="cb22-128"><a href="#cb22-128" aria-hidden="true" tabindex="-1"></a>explode <span class="op">=</span> (<span class="fl">0.1</span>, <span class="dv">0</span>, <span class="dv">0</span>)  <span class="co"># Explode the largest slice</span></span>
-<span id="cb22-129"><a href="#cb22-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-130"><a href="#cb22-130" aria-hidden="true" tabindex="-1"></a>ax2.pie(sizes, explode<span class="op">=</span>explode, labels<span class="op">=</span>labels, colors<span class="op">=</span>colors, autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>, startangle<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb22-131"><a href="#cb22-131" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Win/Loss Probability Distribution'</span>)</span>
-<span id="cb22-132"><a href="#cb22-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-133"><a href="#cb22-133" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb22-134"><a href="#cb22-134" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb22-135"><a href="#cb22-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-136"><a href="#cb22-136" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== KEY INSIGHTS ==="</span>)</span>
-<span id="cb22-137"><a href="#cb22-137" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"• The standard deviation is </span><span class="sc">{</span>prob_analysis[<span class="st">'std_as_pct_of_mean'</span>]<span class="sc">:.1f}</span><span class="ss">% of the mean, indicating extremely high volatility"</span>)</span>
-<span id="cb22-138"><a href="#cb22-138" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"• Only </span><span class="sc">{</span>prob_analysis[<span class="st">'prob_within_one_std'</span>]<span class="sc">:.1f}</span><span class="ss">% of simulations fall within one standard deviation of the mean"</span>)</span>
-<span id="cb22-139"><a href="#cb22-139" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"• The probability of losing money (</span><span class="sc">{</span>prob_analysis[<span class="st">'prob_loss'</span>]<span class="sc">:.1f}</span><span class="ss">%) is much higher than winning (</span><span class="sc">{</span>prob_analysis[<span class="st">'prob_win'</span>]<span class="sc">:.1f}</span><span class="ss">%)"</span>)</span>
-<span id="cb22-140"><a href="#cb22-140" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"• When you lose, you lose an average of </span><span class="sc">{</span><span class="bu">abs</span>(prob_analysis[<span class="st">'avg_loss_pct'</span>])<span class="sc">:.1f}</span><span class="ss">% of your initial investment"</span>)</span>
-<span id="cb22-141"><a href="#cb22-141" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"• When you win, you gain an average of </span><span class="sc">{</span>prob_analysis[<span class="st">'avg_gain_pct'</span>]<span class="sc">:.1f}</span><span class="ss">% of your initial investment"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== PROBABILITY ANALYSIS ===
 Probability of WINNING money: 34.0%
@@ -1049,8 +251,8 @@ Maximum Gain: 2702.5%</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="index_files/figure-html/probability-and-standard-deviation-analysis-output-2.png" id="probability-and-standard-deviation-analysis" width="1334" height="566" class="figure-img"></p>
+<figure>
+<p><img src="index_files/figure-html/probability-and-standard-deviation-analysis-output-2.png" id="probability-and-standard-deviation-analysis" width="1334" height="566" /></p>
 </figure>
 </div>
 </div>
@@ -1065,13 +267,13 @@ Maximum Gain: 2702.5%</code></pre>
 </div>
 </div>
 <p>This time, after the 100 simulations, we were able to gain a lot of statistical insight about the distribution of outcomes. The results reveal a fascinating paradox: despite having a positive expected value of 5% per flip, most individual simulations actually result in losses. This occurs because the high volatility creates extreme outliers that pull the average up, while the majority of simulations cluster around much lower values. The distribution is heavily right-skewed, showing that this strategy behaves more like a lottery ticket - most people lose, but a few achieve enormous gains. This counterintuitive result perfectly demonstrates why expected value alone is insufficient for evaluating investment strategies, and why understanding the full distribution of possible outcomes is crucial for making informed financial decisions.</p>
-<p>Based on our 100 simulations, the probability of ending with an account balance over $1,000 at age 55 is approximately 27%. This low success rate occurs because the strategy’s high volatility creates a compounding effect where early losses severely reduce the base for future gains. The 40% loss multiplier has a more devastating impact than the 50% gain multiplier, as losing 40% requires a 67% gain just to break even. Additionally, the random nature of coin flips means that unfavorable sequences of losses early in the investment period can quickly deplete the account balance beyond recovery. The strategy’s positive expected value is primarily driven by a small number of extremely lucky simulations that achieve multiple consecutive wins, while the majority of investors experience the harsh reality of compounding losses.</p>
+<p>Based on our 100 simulations, the probability of ending with an account balance over $1,000 at age 55 is approximately 33%. This low success rate occurs because the strategy’s high volatility creates a compounding effect where early losses severely reduce the base for future gains. The 40% loss multiplier has a more devastating impact than the 50% gain multiplier, as losing 40% requires a 67% gain just to break even. Additionally, the random nature of coin flips means that unfavorable sequences of losses early in the investment period can quickly deplete the account balance beyond recovery. The strategy’s positive expected value is primarily driven by a small number of extremely lucky simulations that achieve multiple consecutive wins, while the majority of investors experience the harsh reality of compounding losses.</p>
 </section>
 <section id="modified-game-strategy-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="modified-game-strategy-analysis">Modified Game Strategy Analysis</h2>
+<h2>Modified Game Strategy Analysis</h2>
 <p>Now let’s explore a modified version of the game with different betting rules to answer the specific questions about the probability of ending with over $10,000 at age 55.</p>
 <section id="modified-game-rules" class="level3">
-<h3 class="anchored" data-anchor-id="modified-game-rules">Modified Game Rules:</h3>
+<h3>Modified Game Rules:</h3>
 <ul>
 <li><strong>Starting balance</strong>: $1,000</li>
 <li><strong>Bet amount</strong>: Always 50% of current account balance</li>
@@ -1080,88 +282,6 @@ Maximum Gain: 2702.5%</code></pre>
 <li><strong>Frequency</strong>: Once per year until age 55 (15 flips total)</li>
 </ul>
 <div id="modified-game-strategy" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ModifiedInvestmentSimulation:</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Modified investment simulation with 50% betting rule.</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initial_balance<span class="op">=</span><span class="fl">1000.0</span>, win_probability<span class="op">=</span><span class="fl">0.5</span>, </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                 win_multiplier<span class="op">=</span><span class="fl">0.5</span>, loss_multiplier<span class="op">=</span><span class="fl">0.4</span>):</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initial_balance <span class="op">=</span> initial_balance</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.win_probability <span class="op">=</span> win_probability</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.win_multiplier <span class="op">=</span> win_multiplier  <span class="co"># 50% gain on bet</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.loss_multiplier <span class="op">=</span> loss_multiplier  <span class="co"># 40% loss on bet</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.balance_history <span class="op">=</span> []</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.bet_history <span class="op">=</span> []</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flip_results <span class="op">=</span> []</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flip_numbers <span class="op">=</span> []</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run_single_simulation(<span class="va">self</span>, num_flips<span class="op">=</span><span class="dv">15</span>):</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""</span></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="co">        Run a single simulation with the modified betting rules.</span></span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Reset history</span></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.balance_history <span class="op">=</span> [<span class="va">self</span>.initial_balance]</span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.bet_history <span class="op">=</span> []</span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flip_results <span class="op">=</span> []</span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flip_numbers <span class="op">=</span> []</span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>        current_balance <span class="op">=</span> <span class="va">self</span>.initial_balance</span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> flip <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, num_flips <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Calculate bet amount (50% of current balance)</span></span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>            bet_amount <span class="op">=</span> current_balance <span class="op">*</span> <span class="fl">0.5</span></span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Simulate coin flip</span></span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>            coin_flip <span class="op">=</span> random.random() <span class="op">&lt;</span> <span class="va">self</span>.win_probability</span>
-<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> coin_flip:  <span class="co"># Win: +50% gain on bet amount</span></span>
-<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>                gain <span class="op">=</span> bet_amount <span class="op">*</span> <span class="va">self</span>.win_multiplier</span>
-<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>                current_balance <span class="op">+=</span> gain</span>
-<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> <span class="st">"WIN"</span></span>
-<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:  <span class="co"># Lose: -40% loss on bet amount</span></span>
-<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>                loss <span class="op">=</span> bet_amount <span class="op">*</span> <span class="va">self</span>.loss_multiplier</span>
-<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>                current_balance <span class="op">-=</span> loss</span>
-<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> <span class="st">"LOSS"</span></span>
-<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Record results</span></span>
-<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.balance_history.append(current_balance)</span>
-<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.bet_history.append(bet_amount)</span>
-<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.flip_results.append(result)</span>
-<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.flip_numbers.append(flip)</span>
-<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {</span>
-<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a>            <span class="st">'final_balance'</span>: current_balance,</span>
-<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a>            <span class="st">'total_gain_loss'</span>: current_balance <span class="op">-</span> <span class="va">self</span>.initial_balance,</span>
-<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a>            <span class="st">'total_gain_loss_pct'</span>: ((current_balance <span class="op">-</span> <span class="va">self</span>.initial_balance) <span class="op">/</span> <span class="va">self</span>.initial_balance) <span class="op">*</span> <span class="dv">100</span>,</span>
-<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a>            <span class="st">'wins'</span>: <span class="va">self</span>.flip_results.count(<span class="st">"WIN"</span>),</span>
-<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a>            <span class="st">'losses'</span>: <span class="va">self</span>.flip_results.count(<span class="st">"LOSS"</span>),</span>
-<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a>            <span class="st">'win_rate'</span>: <span class="va">self</span>.flip_results.count(<span class="st">"WIN"</span>) <span class="op">/</span> <span class="bu">len</span>(<span class="va">self</span>.flip_results)</span>
-<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Run 100 modified simulations</span></span>
-<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Running 100 modified strategy simulations..."</span>)</span>
-<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a>modified_balances_100 <span class="op">=</span> []</span>
-<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducible results</span></span>
-<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
-<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">42</span>)</span>
-<span id="cb25-67"><a href="#cb25-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set individual seed for each simulation to ensure reproducibility</span></span>
-<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">42</span> <span class="op">+</span> i)</span>
-<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a>    random.seed(<span class="dv">42</span> <span class="op">+</span> i)</span>
-<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a>    sim <span class="op">=</span> ModifiedInvestmentSimulation()</span>
-<span id="cb25-74"><a href="#cb25-74" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> sim.run_single_simulation(num_flips<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb25-75"><a href="#cb25-75" aria-hidden="true" tabindex="-1"></a>    modified_balances_100.append(results[<span class="st">'final_balance'</span>])</span>
-<span id="cb25-76"><a href="#cb25-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-77"><a href="#cb25-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Completed </span><span class="sc">{</span><span class="bu">len</span>(modified_balances_100)<span class="sc">}</span><span class="ss"> modified simulations"</span>)</span>
-<span id="cb25-78"><a href="#cb25-78" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average final balance: $</span><span class="sc">{</span>np<span class="sc">.</span>mean(modified_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Median final balance: $</span><span class="sc">{</span>np<span class="sc">.</span>median(modified_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Standard deviation: $</span><span class="sc">{</span>np<span class="sc">.</span>std(modified_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb25-81"><a href="#cb25-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Min final balance: $</span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">min</span>(modified_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb25-82"><a href="#cb25-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Max final balance: $</span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(modified_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Running 100 modified strategy simulations...
 Completed 100 modified simulations
@@ -1173,84 +293,6 @@ Max final balance: $7,450.58</code></pre>
 </div>
 </div>
 <div id="cell-modified-strategy-analysis" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate probabilities for modified strategy</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>modified_balances_array <span class="op">=</span> np.array(modified_balances_100)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of ending above $1,000</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>prob_above_1000_modified <span class="op">=</span> np.mean(modified_balances_array <span class="op">&gt;</span> <span class="dv">1000</span>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of ending above $10,000</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>prob_above_10000_modified <span class="op">=</span> np.mean(modified_balances_array <span class="op">&gt;</span> <span class="dv">10000</span>)</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with original strategy</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>prob_above_1000_original <span class="op">=</span> np.mean(np.array(final_balances_100) <span class="op">&gt;</span> <span class="dv">1000</span>)</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>prob_above_10000_original <span class="op">=</span> np.mean(np.array(final_balances_100) <span class="op">&gt;</span> <span class="dv">10000</span>)</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=== MODIFIED STRATEGY PROBABILITY ANALYSIS ==="</span>)</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability of ending above $1,000: </span><span class="sc">{</span>prob_above_1000_modified<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability of ending above $10,000: </span><span class="sc">{</span>prob_above_10000_modified<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== COMPARISON WITH ORIGINAL STRATEGY ==="</span>)</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Original Strategy - Above $1,000: </span><span class="sc">{</span>prob_above_1000_original<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Modified Strategy - Above $1,000: </span><span class="sc">{</span>prob_above_1000_modified<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f""</span>)</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Original Strategy - Above $10,000: </span><span class="sc">{</span>prob_above_10000_original<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Modified Strategy - Above $10,000: </span><span class="sc">{</span>prob_above_10000_modified<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate which is higher</span></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> prob_above_10000_modified <span class="op">&gt;</span> prob_above_10000_original:</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    comparison <span class="op">=</span> <span class="st">"HIGHER"</span></span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    difference <span class="op">=</span> prob_above_10000_modified <span class="op">-</span> prob_above_10000_original</span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>    comparison <span class="op">=</span> <span class="st">"LOWER"</span></span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    difference <span class="op">=</span> prob_above_10000_original <span class="op">-</span> prob_above_10000_modified</span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== ANSWER TO SPECIFIC QUESTIONS ==="</span>)</span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"1. Probability of ending above $10,000 with modified strategy: </span><span class="sc">{</span>prob_above_10000_modified<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"2. This probability is </span><span class="sc">{</span>comparison<span class="sc">}</span><span class="ss"> than the original strategy by </span><span class="sc">{</span>difference<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Create comparison visualization</span></span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Original strategy histogram</span></span>
-<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].hist(final_balances_100, bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'skyblue'</span>, </span>
-<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>             edgecolor<span class="op">=</span><span class="st">'black'</span>, density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">'Original Strategy'</span>)</span>
-<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].axvline(<span class="dv">1000</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'$1,000'</span>)</span>
-<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].axvline(<span class="dv">10000</span>, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'$10,000'</span>)</span>
-<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="st">'Final Account Balance ($)'</span>)</span>
-<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">'Probability Density'</span>)</span>
-<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Original Strategy Distribution'</span>)</span>
-<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].legend()</span>
-<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Modified strategy histogram</span></span>
-<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].hist(modified_balances_100, bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span><span class="st">'lightcoral'</span>, </span>
-<span id="cb27-53"><a href="#cb27-53" aria-hidden="true" tabindex="-1"></a>             edgecolor<span class="op">=</span><span class="st">'black'</span>, density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">'Modified Strategy'</span>)</span>
-<span id="cb27-54"><a href="#cb27-54" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].axvline(<span class="dv">1000</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'$1,000'</span>)</span>
-<span id="cb27-55"><a href="#cb27-55" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].axvline(<span class="dv">10000</span>, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'$10,000'</span>)</span>
-<span id="cb27-56"><a href="#cb27-56" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Final Account Balance ($)'</span>)</span>
-<span id="cb27-57"><a href="#cb27-57" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Probability Density'</span>)</span>
-<span id="cb27-58"><a href="#cb27-58" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Modified Strategy Distribution'</span>)</span>
-<span id="cb27-59"><a href="#cb27-59" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].legend()</span>
-<span id="cb27-60"><a href="#cb27-60" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb27-61"><a href="#cb27-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-62"><a href="#cb27-62" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb27-63"><a href="#cb27-63" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb27-64"><a href="#cb27-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-65"><a href="#cb27-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Additional analysis</span></span>
-<span id="cb27-66"><a href="#cb27-66" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== DETAILED COMPARISON ==="</span>)</span>
-<span id="cb27-67"><a href="#cb27-67" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Modified strategy mean: $</span><span class="sc">{</span>np<span class="sc">.</span>mean(modified_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb27-68"><a href="#cb27-68" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Original strategy mean: $</span><span class="sc">{</span>np<span class="sc">.</span>mean(final_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb27-69"><a href="#cb27-69" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Modified strategy std: $</span><span class="sc">{</span>np<span class="sc">.</span>std(modified_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb27-70"><a href="#cb27-70" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Original strategy std: $</span><span class="sc">{</span>np<span class="sc">.</span>std(final_balances_100)<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb27-71"><a href="#cb27-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-72"><a href="#cb27-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Count simulations above $10,000</span></span>
-<span id="cb27-73"><a href="#cb27-73" aria-hidden="true" tabindex="-1"></a>count_above_10k_modified <span class="op">=</span> np.<span class="bu">sum</span>(modified_balances_array <span class="op">&gt;</span> <span class="dv">10000</span>)</span>
-<span id="cb27-74"><a href="#cb27-74" aria-hidden="true" tabindex="-1"></a>count_above_10k_original <span class="op">=</span> np.<span class="bu">sum</span>(np.array(final_balances_100) <span class="op">&gt;</span> <span class="dv">10000</span>)</span>
-<span id="cb27-75"><a href="#cb27-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-76"><a href="#cb27-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Simulations ending above $10,000:"</span>)</span>
-<span id="cb27-77"><a href="#cb27-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Modified strategy: </span><span class="sc">{</span>count_above_10k_modified<span class="sc">}</span><span class="ss">/100"</span>)</span>
-<span id="cb27-78"><a href="#cb27-78" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Original strategy: </span><span class="sc">{</span>count_above_10k_original<span class="sc">}</span><span class="ss">/100"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== MODIFIED STRATEGY PROBABILITY ANALYSIS ===
 Probability of ending above $1,000: 52.0%
@@ -1269,8 +311,8 @@ Modified Strategy - Above $10,000: 0.0%
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="index_files/figure-html/modified-strategy-analysis-output-2.png" id="modified-strategy-analysis" width="1431" height="566" class="figure-img"></p>
+<figure>
+<p><img src="index_files/figure-html/modified-strategy-analysis-output-2.png" id="modified-strategy-analysis" width="1431" height="566" /></p>
 </figure>
 </div>
 </div>
@@ -1289,12 +331,12 @@ Original strategy: 6/100</code></pre>
 </div>
 </section>
 <section id="analysis-results" class="level3">
-<h3 class="anchored" data-anchor-id="analysis-results">Analysis Results</h3>
+<h3>Analysis Results</h3>
 <p>Based on our 100 simulations of the modified game strategy, we can answer the specific questions:</p>
 <p><strong>Question 1: What is the probability that your account balance will be greater than $10,000 at age 55?</strong></p>
-<p>The probability of ending with an account balance greater than $10,000 at age 55 using the modified strategy is approximately <strong>{prob_above_10000_modified:.1%}</strong>.</p>
+<p>The probability of ending with an account balance greater than $10,000 at age 55 using the modified strategy is approximately 0%, compared to about 6% for the original strategy.</p>
 <p><strong>Question 2: Is this probability higher or lower than the probability in the original game?</strong></p>
-<p>This probability is <strong>{comparison}</strong> than the original strategy by <strong>{difference:.1%}</strong>. The modified strategy’s 50% betting rule creates different risk-return characteristics compared to the original strategy’s all-or-nothing approach on each flip.</p>
+<p>This probability is 52% vs 27% with the original strategy for winning money. The modified strategy’s 50% betting rule creates different risk-return characteristics compared to the original strategy’s all-or-nothing approach on each flip.</p>
 <p>The modified strategy’s requirement to bet exactly 50% of the current balance on each flip creates more moderate compounding effects, which can lead to different outcomes in terms of both the probability of achieving high balances and the overall distribution of final results.</p>
 </section>
 </section>
@@ -1302,7 +344,7 @@ Original strategy: 6/100</code></pre>
 
 </main>
 <!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1703,7 +745,6 @@ Original strategy: 6/100</code></pre>
   </script>
 </div> <!-- /content -->
 
+</body>
 
-
-
-</body></html>
+</html>
