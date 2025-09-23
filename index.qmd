@@ -499,7 +499,7 @@ print(f"Total Losses: ${sum([c for c in balance_changes if c < 0]):,.2f}")
 print(f"Net Change: ${sum(balance_changes):,.2f}")
 ```
 
-We ended up with a net change of $793.61. I would be happy with this result, as we were able to gain exactly the amount we expected to. With the 15 flips, we got exactly the expected value and the success rate was 60%.
+We ended up with a net change of $-885.21. I would not be happy with this result, as we were losing more than we expected. With the 15 flips, we were definitely unlucky with the amount of times we lost, but it showed the law of large numbers at work where if we ran the simulation many times, we would get closer to the expected value.
 
 ## 100 Simulations Analysis
 
@@ -526,6 +526,10 @@ def run_multiple_simulations(num_simulations=100, num_flips=15, initial_balance=
     simulation_objects = []
     
     for i in range(num_simulations):
+        # Set individual seed for each simulation to ensure reproducibility
+        np.random.seed(42 + i)
+        random.seed(42 + i)
+        
         sim = InvestmentSimulation(initial_balance=initial_balance)
         results = sim.run_single_simulation(num_flips=num_flips)
         final_balances.append(results['final_balance'])
@@ -535,6 +539,10 @@ def run_multiple_simulations(num_simulations=100, num_flips=15, initial_balance=
 
 # Run 100 simulations
 print("Running 100 simulations...")
+# Set seed for reproducible results
+np.random.seed(42)
+random.seed(42)
+
 final_balances_100, sim_objects_100 = run_multiple_simulations(num_simulations=100, num_flips=15)
 
 print(f"Completed {len(final_balances_100)} simulations")
@@ -863,4 +871,203 @@ print(f"• When you win, you gain an average of {prob_analysis['avg_gain_pct']:
 This time, after the 100 simulations, we were able to gain a lot of statistical insight about the distribution of outcomes. The results reveal a fascinating paradox: despite having a positive expected value of 5% per flip, most individual simulations actually result in losses. This occurs because the high volatility creates extreme outliers that pull the average up, while the majority of simulations cluster around much lower values. The distribution is heavily right-skewed, showing that this strategy behaves more like a lottery ticket - most people lose, but a few achieve enormous gains. This counterintuitive result perfectly demonstrates why expected value alone is insufficient for evaluating investment strategies, and why understanding the full distribution of possible outcomes is crucial for making informed financial decisions.
 
 
-Based on our 100 simulations, the probability of ending with an account balance over $1,000 at age 55 is approximately 27%. This low success rate occurs because the strategy's high volatility creates a compounding effect where early losses severely reduce the base for future gains. The 40% loss multiplier has a more devastating impact than the 50% gain multiplier, as losing 40% requires a 67% gain just to break even. Additionally, the random nature of coin flips means that unfavorable sequences of losses early in the investment period can quickly deplete the account balance beyond recovery. The strategy's positive expected value is primarily driven by a small number of extremely lucky simulations that achieve multiple consecutive wins, while the majority of investors experience the harsh reality of compounding losses.
+Based on our 100 simulations, the probability of ending with an account balance over $1,000 at age 55 is approximately 33%. This low success rate occurs because the strategy's high volatility creates a compounding effect where early losses severely reduce the base for future gains. The 40% loss multiplier has a more devastating impact than the 50% gain multiplier, as losing 40% requires a 67% gain just to break even. Additionally, the random nature of coin flips means that unfavorable sequences of losses early in the investment period can quickly deplete the account balance beyond recovery. The strategy's positive expected value is primarily driven by a small number of extremely lucky simulations that achieve multiple consecutive wins, while the majority of investors experience the harsh reality of compounding losses.
+
+## Modified Game Strategy Analysis
+
+Now let's explore a modified version of the game with different betting rules to answer the specific questions about the probability of ending with over $10,000 at age 55.
+
+### Modified Game Rules:
+- **Starting balance**: $1,000
+- **Bet amount**: Always 50% of current account balance
+- **Win condition**: +50% gain on the bet amount (+25% of total balance)
+- **Loss condition**: -40% loss on the bet amount (-20% of total balance)
+- **Frequency**: Once per year until age 55 (15 flips total)
+
+```{python}
+#| label: modified-game-strategy
+#| echo: true
+
+class ModifiedInvestmentSimulation:
+    """
+    Modified investment simulation with 50% betting rule.
+    """
+    
+    def __init__(self, initial_balance=1000.0, win_probability=0.5, 
+                 win_multiplier=0.5, loss_multiplier=0.4):
+        self.initial_balance = initial_balance
+        self.win_probability = win_probability
+        self.win_multiplier = win_multiplier  # 50% gain on bet
+        self.loss_multiplier = loss_multiplier  # 40% loss on bet
+        self.balance_history = []
+        self.bet_history = []
+        self.flip_results = []
+        self.flip_numbers = []
+        
+    def run_single_simulation(self, num_flips=15):
+        """
+        Run a single simulation with the modified betting rules.
+        """
+        # Reset history
+        self.balance_history = [self.initial_balance]
+        self.bet_history = []
+        self.flip_results = []
+        self.flip_numbers = []
+        
+        current_balance = self.initial_balance
+        
+        for flip in range(1, num_flips + 1):
+            # Calculate bet amount (50% of current balance)
+            bet_amount = current_balance * 0.5
+            
+            # Simulate coin flip
+            coin_flip = random.random() < self.win_probability
+            
+            if coin_flip:  # Win: +50% gain on bet amount
+                gain = bet_amount * self.win_multiplier
+                current_balance += gain
+                result = "WIN"
+            else:  # Lose: -40% loss on bet amount
+                loss = bet_amount * self.loss_multiplier
+                current_balance -= loss
+                result = "LOSS"
+            
+            # Record results
+            self.balance_history.append(current_balance)
+            self.bet_history.append(bet_amount)
+            self.flip_results.append(result)
+            self.flip_numbers.append(flip)
+        
+        return {
+            'final_balance': current_balance,
+            'total_gain_loss': current_balance - self.initial_balance,
+            'total_gain_loss_pct': ((current_balance - self.initial_balance) / self.initial_balance) * 100,
+            'wins': self.flip_results.count("WIN"),
+            'losses': self.flip_results.count("LOSS"),
+            'win_rate': self.flip_results.count("WIN") / len(self.flip_results)
+        }
+
+# Run 100 modified simulations
+print("Running 100 modified strategy simulations...")
+modified_balances_100 = []
+
+# Set seed for reproducible results
+np.random.seed(42)
+random.seed(42)
+
+for i in range(100):
+    # Set individual seed for each simulation to ensure reproducibility
+    np.random.seed(42 + i)
+    random.seed(42 + i)
+    
+    sim = ModifiedInvestmentSimulation()
+    results = sim.run_single_simulation(num_flips=15)
+    modified_balances_100.append(results['final_balance'])
+
+print(f"Completed {len(modified_balances_100)} modified simulations")
+print(f"Average final balance: ${np.mean(modified_balances_100):,.2f}")
+print(f"Median final balance: ${np.median(modified_balances_100):,.2f}")
+print(f"Standard deviation: ${np.std(modified_balances_100):,.2f}")
+print(f"Min final balance: ${np.min(modified_balances_100):,.2f}")
+print(f"Max final balance: ${np.max(modified_balances_100):,.2f}")
+```
+
+```{python}
+#| label: modified-strategy-analysis
+#| echo: true
+
+# Calculate probabilities for modified strategy
+modified_balances_array = np.array(modified_balances_100)
+
+# Probability of ending above $1,000
+prob_above_1000_modified = np.mean(modified_balances_array > 1000)
+
+# Probability of ending above $10,000
+prob_above_10000_modified = np.mean(modified_balances_array > 10000)
+
+# Compare with original strategy
+prob_above_1000_original = np.mean(np.array(final_balances_100) > 1000)
+prob_above_10000_original = np.mean(np.array(final_balances_100) > 10000)
+
+print("=== MODIFIED STRATEGY PROBABILITY ANALYSIS ===")
+print(f"Probability of ending above $1,000: {prob_above_1000_modified:.1%}")
+print(f"Probability of ending above $10,000: {prob_above_10000_modified:.1%}")
+
+print(f"\n=== COMPARISON WITH ORIGINAL STRATEGY ===")
+print(f"Original Strategy - Above $1,000: {prob_above_1000_original:.1%}")
+print(f"Modified Strategy - Above $1,000: {prob_above_1000_modified:.1%}")
+print(f"")
+print(f"Original Strategy - Above $10,000: {prob_above_10000_original:.1%}")
+print(f"Modified Strategy - Above $10,000: {prob_above_10000_modified:.1%}")
+
+# Calculate which is higher
+if prob_above_10000_modified > prob_above_10000_original:
+    comparison = "HIGHER"
+    difference = prob_above_10000_modified - prob_above_10000_original
+else:
+    comparison = "LOWER"
+    difference = prob_above_10000_original - prob_above_10000_modified
+
+print(f"\n=== ANSWER TO SPECIFIC QUESTIONS ===")
+print(f"1. Probability of ending above $10,000 with modified strategy: {prob_above_10000_modified:.1%}")
+print(f"2. This probability is {comparison} than the original strategy by {difference:.1%}")
+
+# Create comparison visualization
+fig, axes = plt.subplots(1, 2, figsize=(15, 6))
+
+# Original strategy histogram
+axes[0].hist(final_balances_100, bins=30, alpha=0.7, color='skyblue', 
+             edgecolor='black', density=True, label='Original Strategy')
+axes[0].axvline(1000, color='red', linestyle='--', alpha=0.7, label='$1,000')
+axes[0].axvline(10000, color='green', linestyle='--', alpha=0.7, label='$10,000')
+axes[0].set_xlabel('Final Account Balance ($)')
+axes[0].set_ylabel('Probability Density')
+axes[0].set_title('Original Strategy Distribution')
+axes[0].legend()
+axes[0].grid(True, alpha=0.3)
+
+# Modified strategy histogram
+axes[1].hist(modified_balances_100, bins=30, alpha=0.7, color='lightcoral', 
+             edgecolor='black', density=True, label='Modified Strategy')
+axes[1].axvline(1000, color='red', linestyle='--', alpha=0.7, label='$1,000')
+axes[1].axvline(10000, color='green', linestyle='--', alpha=0.7, label='$10,000')
+axes[1].set_xlabel('Final Account Balance ($)')
+axes[1].set_ylabel('Probability Density')
+axes[1].set_title('Modified Strategy Distribution')
+axes[1].legend()
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Additional analysis
+print(f"\n=== DETAILED COMPARISON ===")
+print(f"Modified strategy mean: ${np.mean(modified_balances_100):,.2f}")
+print(f"Original strategy mean: ${np.mean(final_balances_100):,.2f}")
+print(f"Modified strategy std: ${np.std(modified_balances_100):,.2f}")
+print(f"Original strategy std: ${np.std(final_balances_100):,.2f}")
+
+# Count simulations above $10,000
+count_above_10k_modified = np.sum(modified_balances_array > 10000)
+count_above_10k_original = np.sum(np.array(final_balances_100) > 10000)
+
+print(f"\nSimulations ending above $10,000:")
+print(f"Modified strategy: {count_above_10k_modified}/100")
+print(f"Original strategy: {count_above_10k_original}/100")
+```
+
+### Analysis Results
+
+Based on our 100 simulations of the modified game strategy, we can answer the specific questions:
+
+**Question 1: What is the probability that your account balance will be greater than $10,000 at age 55?**
+
+The probability of ending with an account balance greater than $10,000 at age 55 using the modified strategy is approximately 0%, compared to about 6% for the original strategy.
+
+**Question 2: Is this probability higher or lower than the probability in the original game?**
+
+This probability is 52% vs 27% with the original strategy for winning money. The modified strategy's 50% betting rule creates different risk-return characteristics compared to the original strategy's all-or-nothing approach on each flip.
+
+The modified strategy's requirement to bet exactly 50% of the current balance on each flip creates more moderate compounding effects, which can lead to different outcomes in terms of both the probability of achieving high balances and the overall distribution of final results.
+
+
