@@ -21,7 +21,7 @@ execute:
 
 ```{python}
 #| label: setup-imports
-#| echo: true
+#| echo: false
 
 import numpy as np
 import pandas as pd
@@ -39,7 +39,7 @@ print("Libraries imported successfully!")
 
 ```{python}
 #| label: strategy-1-single-flip
-#| echo: true
+#| echo: false
 
 def single_coin_flip_strategy(initial_balance: float = 1000.0, 
                             win_probability: float = 0.5,
@@ -84,7 +84,7 @@ print(f"Average final balance: ${np.mean(test_results):.2f}")
 
 ```{python}
 #| label: strategy-2-multiple-flips
-#| echo: true
+#| echo: false
 
 def multiple_coin_flips_strategy(initial_balance: float = 1000.0,
                                win_probability: float = 0.5,
@@ -132,7 +132,7 @@ print(f"Average final balance: ${np.mean(test_results_multiple):.2f}")
 
 ```{python}
 #| label: analysis-functions
-#| echo: true
+#| echo: false
 
 def analyze_strategy_results(results: List[float], strategy_name: str) -> dict:
     """
@@ -178,7 +178,7 @@ print_analysis(test_analysis)
 
 ```{python}
 #| label: visualization-setup
-#| echo: true
+#| echo: false
 
 def create_strategy_visualizations(single_flip_results: List[float], 
                                  multiple_flip_results: List[float],
@@ -273,7 +273,7 @@ The expected value is **positive** (1.05 > 1.0), meaning we expect to gain money
 
 ```{python}
 #| label: single-simulation-dynamics
-#| echo: true
+#| echo: false
 
 class InvestmentSimulation:
     """
@@ -429,7 +429,7 @@ print(f"Flip Results: {' '.join(simulation.flip_results)}")
 
 ```{python}
 #| label: create-balance-visualization
-#| echo: true
+#| echo: false
 
 # Create the object-oriented matplotlib visualization
 fig = simulation.plot_balance_dynamics(figsize=(14, 10))
@@ -507,7 +507,7 @@ Now let's run 100 simulations to get a better understanding of the distribution 
 
 ```{python}
 #| label: hundred-simulations
-#| echo: true
+#| echo: false
 
 def run_multiple_simulations(num_simulations=100, num_flips=15, initial_balance=1000.0):
     """
@@ -555,7 +555,7 @@ print(f"Max final balance: ${np.max(final_balances_100):,.2f}")
 
 ```{python}
 #| label: probability-distribution-analysis
-#| echo: true
+#| echo: false
 
 def create_probability_distribution_plot(final_balances, initial_balance=1000.0, figsize=(15, 10)):
     """
@@ -632,7 +632,7 @@ plt.show()
 
 ```{python}
 #| label: detailed-statistics-analysis
-#| echo: true
+#| echo: false
 
 def analyze_simulation_results(final_balances, initial_balance=1000.0):
     """
@@ -723,7 +723,7 @@ print(f"Largest gain: ${analysis_100['max_balance'] - 1000:,.2f}")
 
 ```{python}
 #| label: probability-and-standard-deviation-analysis
-#| echo: true
+#| echo: false
 
 def calculate_detailed_probabilities(final_balances, initial_balance=1000.0):
     """
@@ -886,7 +886,7 @@ Now let's explore a modified version of the game with different betting rules to
 
 ```{python}
 #| label: modified-game-strategy
-#| echo: true
+#| echo: false
 
 class ModifiedInvestmentSimulation:
     """
@@ -974,7 +974,7 @@ print(f"Max final balance: ${np.max(modified_balances_100):,.2f}")
 
 ```{python}
 #| label: modified-strategy-analysis
-#| echo: true
+#| echo: false
 
 # Calculate probabilities for modified strategy
 modified_balances_array = np.array(modified_balances_100)
