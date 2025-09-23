@@ -65,46 +65,6 @@
 \fi
 \makeatother
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -232,176 +192,23 @@ Pages from a new repository called ``simulationChallenge.''
 Investment}\label{strategy-1-single-coin-flip-investment}
 
 \phantomsection\label{setup-imports}
-\begin{Shaded}
-\begin{Highlighting}[]
-\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
-\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
-\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
-\ImportTok{import}\NormalTok{ seaborn }\ImportTok{as}\NormalTok{ sns}
-\ImportTok{from}\NormalTok{ typing }\ImportTok{import}\NormalTok{ List, Tuple}
-\ImportTok{import}\NormalTok{ random}
-
-\CommentTok{\# Set random seed for reproducibility}
-\NormalTok{np.random.seed(}\DecValTok{42}\NormalTok{)}
-\NormalTok{random.seed(}\DecValTok{42}\NormalTok{)}
-
-\BuiltInTok{print}\NormalTok{(}\StringTok{"Libraries imported successfully!"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Libraries imported successfully!
 \end{verbatim}
 
 \phantomsection\label{strategy-1-single-flip}
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{def}\NormalTok{ single\_coin\_flip\_strategy(initial\_balance: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{1000.0}\NormalTok{, }
-\NormalTok{                            win\_probability: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{0.5}\NormalTok{,}
-\NormalTok{                            win\_multiplier: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{1.5}\NormalTok{,  }\CommentTok{\# +50\% gain}
-\NormalTok{                            loss\_multiplier: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{0.6}\NormalTok{,  }\CommentTok{\# {-}40\% loss}
-\NormalTok{                            num\_simulations: }\BuiltInTok{int} \OperatorTok{=} \DecValTok{1000}\NormalTok{) }\OperatorTok{{-}\textgreater{}}\NormalTok{ List[}\BuiltInTok{float}\NormalTok{]:}
-    \CommentTok{"""}
-\CommentTok{    Simulate the single coin flip investment strategy.}
-\CommentTok{    }
-\CommentTok{    Parameters:}
-\CommentTok{    {-} initial\_balance: Starting amount ($1000)}
-\CommentTok{    {-} win\_probability: Probability of winning (0.5 for fair coin)}
-\CommentTok{    {-} win\_multiplier: Multiplier when we win (1.5 = +50\%)}
-\CommentTok{    {-} loss\_multiplier: Multiplier when we lose (0.6 = {-}40\%)}
-\CommentTok{    {-} num\_simulations: Number of times to run the simulation}
-\CommentTok{    }
-\CommentTok{    Returns:}
-\CommentTok{    {-} List of final balances for each simulation}
-\CommentTok{    """}
-\NormalTok{    final\_balances }\OperatorTok{=}\NormalTok{ []}
-    
-    \ControlFlowTok{for}\NormalTok{ \_ }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(num\_simulations):}
-\NormalTok{        balance }\OperatorTok{=}\NormalTok{ initial\_balance}
-        
-        \CommentTok{\# Single coin flip (0 or 1)}
-\NormalTok{        coin\_flip }\OperatorTok{=}\NormalTok{ random.random() }\OperatorTok{\textless{}}\NormalTok{ win\_probability}
-        
-        \ControlFlowTok{if}\NormalTok{ coin\_flip:  }\CommentTok{\# Win: +50\%}
-\NormalTok{            balance }\OperatorTok{*=}\NormalTok{ win\_multiplier}
-        \ControlFlowTok{else}\NormalTok{:  }\CommentTok{\# Lose: {-}40\%}
-\NormalTok{            balance }\OperatorTok{*=}\NormalTok{ loss\_multiplier}
-            
-\NormalTok{        final\_balances.append(balance)}
-    
-    \ControlFlowTok{return}\NormalTok{ final\_balances}
-
-\CommentTok{\# Test the function}
-\NormalTok{test\_results }\OperatorTok{=}\NormalTok{ single\_coin\_flip\_strategy(num\_simulations}\OperatorTok{=}\DecValTok{10}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Sample results (first 10 simulations): }\SpecialCharTok{\{}\NormalTok{test\_results}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Average final balance: $}\SpecialCharTok{\{}\NormalTok{np}\SpecialCharTok{.}\NormalTok{mean(test\_results)}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Sample results (first 10 simulations): [600.0, 1500.0, 1500.0, 1500.0, 600.0, 600.0, 600.0, 1500.0, 1500.0, 1500.0]
 Average final balance: $1140.00
 \end{verbatim}
 
 \phantomsection\label{strategy-2-multiple-flips}
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{def}\NormalTok{ multiple\_coin\_flips\_strategy(initial\_balance: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{1000.0}\NormalTok{,}
-\NormalTok{                               win\_probability: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{0.5}\NormalTok{,}
-\NormalTok{                               win\_multiplier: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{1.5}\NormalTok{,  }\CommentTok{\# +50\% gain}
-\NormalTok{                               loss\_multiplier: }\BuiltInTok{float} \OperatorTok{=} \FloatTok{0.6}\NormalTok{,  }\CommentTok{\# {-}40\% loss}
-\NormalTok{                               num\_flips: }\BuiltInTok{int} \OperatorTok{=} \DecValTok{10}\NormalTok{,}
-\NormalTok{                               num\_simulations: }\BuiltInTok{int} \OperatorTok{=} \DecValTok{1000}\NormalTok{) }\OperatorTok{{-}\textgreater{}}\NormalTok{ List[}\BuiltInTok{float}\NormalTok{]:}
-    \CommentTok{"""}
-\CommentTok{    Simulate multiple coin flip investment strategy.}
-\CommentTok{    }
-\CommentTok{    Parameters:}
-\CommentTok{    {-} initial\_balance: Starting amount ($1000)}
-\CommentTok{    {-} win\_probability: Probability of winning each flip (0.5 for fair coin)}
-\CommentTok{    {-} win\_multiplier: Multiplier when we win (1.5 = +50\%)}
-\CommentTok{    {-} loss\_multiplier: Multiplier when we lose (0.6 = {-}40\%)}
-\CommentTok{    {-} num\_flips: Number of coin flips per simulation}
-\CommentTok{    {-} num\_simulations: Number of times to run the simulation}
-\CommentTok{    }
-\CommentTok{    Returns:}
-\CommentTok{    {-} List of final balances for each simulation}
-\CommentTok{    """}
-\NormalTok{    final\_balances }\OperatorTok{=}\NormalTok{ []}
-    
-    \ControlFlowTok{for}\NormalTok{ \_ }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(num\_simulations):}
-\NormalTok{        balance }\OperatorTok{=}\NormalTok{ initial\_balance}
-        
-        \CommentTok{\# Multiple coin flips}
-        \ControlFlowTok{for}\NormalTok{ \_ }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(num\_flips):}
-\NormalTok{            coin\_flip }\OperatorTok{=}\NormalTok{ random.random() }\OperatorTok{\textless{}}\NormalTok{ win\_probability}
-            
-            \ControlFlowTok{if}\NormalTok{ coin\_flip:  }\CommentTok{\# Win: +50\%}
-\NormalTok{                balance }\OperatorTok{*=}\NormalTok{ win\_multiplier}
-            \ControlFlowTok{else}\NormalTok{:  }\CommentTok{\# Lose: {-}40\%}
-\NormalTok{                balance }\OperatorTok{*=}\NormalTok{ loss\_multiplier}
-                
-\NormalTok{        final\_balances.append(balance)}
-    
-    \ControlFlowTok{return}\NormalTok{ final\_balances}
-
-\CommentTok{\# Test the function}
-\NormalTok{test\_results\_multiple }\OperatorTok{=}\NormalTok{ multiple\_coin\_flips\_strategy(num\_flips}\OperatorTok{=}\DecValTok{5}\NormalTok{, num\_simulations}\OperatorTok{=}\DecValTok{10}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Sample results (5 flips, first 10 simulations): }\SpecialCharTok{\{}\NormalTok{test\_results\_multiple}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Average final balance: $}\SpecialCharTok{\{}\NormalTok{np}\SpecialCharTok{.}\NormalTok{mean(test\_results\_multiple)}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Sample results (5 flips, first 10 simulations): [1215.0, 486.0, 486.0, 1215.0, 194.39999999999998, 77.75999999999999, 3037.5, 3037.5, 1215.0, 1215.0]
 Average final balance: $1217.92
 \end{verbatim}
 
 \phantomsection\label{analysis-functions}
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{def}\NormalTok{ analyze\_strategy\_results(results: List[}\BuiltInTok{float}\NormalTok{], strategy\_name: }\BuiltInTok{str}\NormalTok{) }\OperatorTok{{-}\textgreater{}} \BuiltInTok{dict}\NormalTok{:}
-    \CommentTok{"""}
-\CommentTok{    Analyze the results of a strategy simulation.}
-\CommentTok{    }
-\CommentTok{    Parameters:}
-\CommentTok{    {-} results: List of final balances from simulations}
-\CommentTok{    {-} strategy\_name: Name of the strategy for display}
-\CommentTok{    }
-\CommentTok{    Returns:}
-\CommentTok{    {-} Dictionary with analysis metrics}
-\CommentTok{    """}
-\NormalTok{    results\_array }\OperatorTok{=}\NormalTok{ np.array(results)}
-    
-\NormalTok{    analysis }\OperatorTok{=}\NormalTok{ \{}
-        \StringTok{\textquotesingle{}strategy\textquotesingle{}}\NormalTok{: strategy\_name,}
-        \StringTok{\textquotesingle{}mean\_final\_balance\textquotesingle{}}\NormalTok{: np.mean(results\_array),}
-        \StringTok{\textquotesingle{}median\_final\_balance\textquotesingle{}}\NormalTok{: np.median(results\_array),}
-        \StringTok{\textquotesingle{}std\_final\_balance\textquotesingle{}}\NormalTok{: np.std(results\_array),}
-        \StringTok{\textquotesingle{}min\_final\_balance\textquotesingle{}}\NormalTok{: np.}\BuiltInTok{min}\NormalTok{(results\_array),}
-        \StringTok{\textquotesingle{}max\_final\_balance\textquotesingle{}}\NormalTok{: np.}\BuiltInTok{max}\NormalTok{(results\_array),}
-        \StringTok{\textquotesingle{}win\_rate\textquotesingle{}}\NormalTok{: np.mean(results\_array }\OperatorTok{\textgreater{}} \DecValTok{1000}\NormalTok{),  }\CommentTok{\# Percentage above initial $1000}
-        \StringTok{\textquotesingle{}total\_simulations\textquotesingle{}}\NormalTok{: }\BuiltInTok{len}\NormalTok{(results\_array)}
-\NormalTok{    \}}
-    
-    \ControlFlowTok{return}\NormalTok{ analysis}
-
-\KeywordTok{def}\NormalTok{ print\_analysis(analysis: }\BuiltInTok{dict}\NormalTok{):}
-    \CommentTok{"""Print formatted analysis results."""}
-    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{=== }\SpecialCharTok{\{}\NormalTok{analysis[}\StringTok{\textquotesingle{}strategy\textquotesingle{}}\NormalTok{]}\SpecialCharTok{\}}\SpecialStringTok{ Analysis ==="}\NormalTok{)}
-    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Total Simulations: }\SpecialCharTok{\{}\NormalTok{analysis[}\StringTok{\textquotesingle{}total\_simulations\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:,\}}\SpecialStringTok{"}\NormalTok{)}
-    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Mean Final Balance: $}\SpecialCharTok{\{}\NormalTok{analysis[}\StringTok{\textquotesingle{}mean\_final\_balance\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
-    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Median Final Balance: $}\SpecialCharTok{\{}\NormalTok{analysis[}\StringTok{\textquotesingle{}median\_final\_balance\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
-    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Standard Deviation: $}\SpecialCharTok{\{}\NormalTok{analysis[}\StringTok{\textquotesingle{}std\_final\_balance\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
-    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Min Final Balance: $}\SpecialCharTok{\{}\NormalTok{analysis[}\StringTok{\textquotesingle{}min\_final\_balance\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
-    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Max Final Balance: $}\SpecialCharTok{\{}\NormalTok{analysis[}\StringTok{\textquotesingle{}max\_final\_balance\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.2f\}}\SpecialStringTok{"}\NormalTok{)}
-    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"Win Rate (\% above $1000): }\SpecialCharTok{\{}\NormalTok{analysis[}\StringTok{\textquotesingle{}win\_rate\textquotesingle{}}\NormalTok{]}\SpecialCharTok{:.1\%\}}\SpecialStringTok{"}\NormalTok{)}
-
-\CommentTok{\# Test analysis functions}
-\NormalTok{test\_analysis }\OperatorTok{=}\NormalTok{ analyze\_strategy\_results(test\_results, }\StringTok{"Single Flip Test"}\NormalTok{)}
-\NormalTok{print\_analysis(test\_analysis)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 
 === Single Flip Test Analysis ===
@@ -415,100 +222,301 @@ Win Rate (% above $1000): 60.0%
 \end{verbatim}
 
 \phantomsection\label{visualization-setup}
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{def}\NormalTok{ create\_strategy\_visualizations(single\_flip\_results: List[}\BuiltInTok{float}\NormalTok{], }
-\NormalTok{                                 multiple\_flip\_results: List[}\BuiltInTok{float}\NormalTok{],}
-\NormalTok{                                 num\_flips: }\BuiltInTok{int} \OperatorTok{=} \DecValTok{10}\NormalTok{):}
-    \CommentTok{"""}
-\CommentTok{    Create visualizations comparing the two strategies.}
-\CommentTok{    }
-\CommentTok{    Parameters:}
-\CommentTok{    {-} single\_flip\_results: Results from single flip strategy}
-\CommentTok{    {-} multiple\_flip\_results: Results from multiple flip strategy}
-\CommentTok{    {-} num\_flips: Number of flips used in multiple flip strategy}
-\CommentTok{    """}
-    
-    \CommentTok{\# Set up the plotting style}
-\NormalTok{    plt.style.use(}\StringTok{\textquotesingle{}seaborn{-}v0\_8\textquotesingle{}}\NormalTok{)}
-\NormalTok{    fig, axes }\OperatorTok{=}\NormalTok{ plt.subplots(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{12}\NormalTok{))}
-    
-    \CommentTok{\# 1. Histogram comparison}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{].hist(single\_flip\_results, bins}\OperatorTok{=}\DecValTok{50}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, label}\OperatorTok{=}\StringTok{\textquotesingle{}Single Flip\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}skyblue\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{].hist(multiple\_flip\_results, bins}\OperatorTok{=}\DecValTok{50}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, label}\OperatorTok{=}\SpecialStringTok{f\textquotesingle{}}\SpecialCharTok{\{}\NormalTok{num\_flips}\SpecialCharTok{\}}\SpecialStringTok{ Flips\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}lightcoral\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{].axvline(}\DecValTok{1000}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, linestyle}\OperatorTok{=}\StringTok{\textquotesingle{}{-}{-}\textquotesingle{}}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, label}\OperatorTok{=}\StringTok{\textquotesingle{}Initial $1000\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{].set\_xlabel(}\StringTok{\textquotesingle{}Final Balance ($)\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{].set\_ylabel(}\StringTok{\textquotesingle{}Frequency\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{].set\_title(}\StringTok{\textquotesingle{}Distribution of Final Balances\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{].legend()}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{].grid(}\VariableTok{True}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.3}\NormalTok{)}
-    
-    \CommentTok{\# 2. Box plot comparison}
-\NormalTok{    data\_to\_plot }\OperatorTok{=}\NormalTok{ [single\_flip\_results, multiple\_flip\_results]}
-\NormalTok{    labels }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Single Flip\textquotesingle{}}\NormalTok{, }\SpecialStringTok{f\textquotesingle{}}\SpecialCharTok{\{}\NormalTok{num\_flips}\SpecialCharTok{\}}\SpecialStringTok{ Flips\textquotesingle{}}\NormalTok{]}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{].boxplot(data\_to\_plot, labels}\OperatorTok{=}\NormalTok{labels)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{].axhline(}\DecValTok{1000}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, linestyle}\OperatorTok{=}\StringTok{\textquotesingle{}{-}{-}\textquotesingle{}}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, label}\OperatorTok{=}\StringTok{\textquotesingle{}Initial $1000\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{].set\_ylabel(}\StringTok{\textquotesingle{}Final Balance ($)\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{].set\_title(}\StringTok{\textquotesingle{}Box Plot Comparison\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{].legend()}
-\NormalTok{    axes[}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{].grid(}\VariableTok{True}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.3}\NormalTok{)}
-    
-    \CommentTok{\# 3. Cumulative distribution}
-\NormalTok{    single\_sorted }\OperatorTok{=}\NormalTok{ np.sort(single\_flip\_results)}
-\NormalTok{    multiple\_sorted }\OperatorTok{=}\NormalTok{ np.sort(multiple\_flip\_results)}
-\NormalTok{    single\_cdf }\OperatorTok{=}\NormalTok{ np.arange(}\DecValTok{1}\NormalTok{, }\BuiltInTok{len}\NormalTok{(single\_sorted) }\OperatorTok{+} \DecValTok{1}\NormalTok{) }\OperatorTok{/} \BuiltInTok{len}\NormalTok{(single\_sorted)}
-\NormalTok{    multiple\_cdf }\OperatorTok{=}\NormalTok{ np.arange(}\DecValTok{1}\NormalTok{, }\BuiltInTok{len}\NormalTok{(multiple\_sorted) }\OperatorTok{+} \DecValTok{1}\NormalTok{) }\OperatorTok{/} \BuiltInTok{len}\NormalTok{(multiple\_sorted)}
-    
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{].plot(single\_sorted, single\_cdf, label}\OperatorTok{=}\StringTok{\textquotesingle{}Single Flip\textquotesingle{}}\NormalTok{, linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{].plot(multiple\_sorted, multiple\_cdf, label}\OperatorTok{=}\SpecialStringTok{f\textquotesingle{}}\SpecialCharTok{\{}\NormalTok{num\_flips}\SpecialCharTok{\}}\SpecialStringTok{ Flips\textquotesingle{}}\NormalTok{, linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{].axvline(}\DecValTok{1000}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, linestyle}\OperatorTok{=}\StringTok{\textquotesingle{}{-}{-}\textquotesingle{}}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, label}\OperatorTok{=}\StringTok{\textquotesingle{}Initial $1000\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{].set\_xlabel(}\StringTok{\textquotesingle{}Final Balance ($)\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{].set\_ylabel(}\StringTok{\textquotesingle{}Cumulative Probability\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{].set\_title(}\StringTok{\textquotesingle{}Cumulative Distribution Function\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{].legend()}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{].grid(}\VariableTok{True}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.3}\NormalTok{)}
-    
-    \CommentTok{\# 4. Log scale comparison}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{].hist(np.log10(single\_flip\_results), bins}\OperatorTok{=}\DecValTok{50}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, label}\OperatorTok{=}\StringTok{\textquotesingle{}Single Flip\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}skyblue\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{].hist(np.log10(multiple\_flip\_results), bins}\OperatorTok{=}\DecValTok{50}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, label}\OperatorTok{=}\SpecialStringTok{f\textquotesingle{}}\SpecialCharTok{\{}\NormalTok{num\_flips}\SpecialCharTok{\}}\SpecialStringTok{ Flips\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}lightcoral\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{].axvline(np.log10(}\DecValTok{1000}\NormalTok{), color}\OperatorTok{=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{, linestyle}\OperatorTok{=}\StringTok{\textquotesingle{}{-}{-}\textquotesingle{}}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, label}\OperatorTok{=}\StringTok{\textquotesingle{}Initial $1000\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{].set\_xlabel(}\StringTok{\textquotesingle{}Log10(Final Balance)\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{].set\_ylabel(}\StringTok{\textquotesingle{}Frequency\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{].set\_title(}\StringTok{\textquotesingle{}Distribution (Log Scale)\textquotesingle{}}\NormalTok{)}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{].legend()}
-\NormalTok{    axes[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{].grid(}\VariableTok{True}\NormalTok{, alpha}\OperatorTok{=}\FloatTok{0.3}\NormalTok{)}
-    
-\NormalTok{    plt.tight\_layout()}
-    \ControlFlowTok{return}\NormalTok{ fig}
-
-\BuiltInTok{print}\NormalTok{(}\StringTok{"Visualization functions defined successfully!"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Visualization functions defined successfully!
 \end{verbatim}
 
-\subsection{Ready for Simulation}\label{ready-for-simulation}
+\subsection{Analysis Questions}\label{analysis-questions}
 
-The code is now set up with two investment strategies:
+\subsubsection{1. Expected Value
+Calculation}\label{expected-value-calculation}
+
+\textbf{What is the expected value of the final balance for the single
+coin flip strategy?}
+
+For a single coin flip: - Win probability: 50\% (0.5) - Win multiplier:
+1.5 (+50\% gain) - Loss multiplier: 0.6 (-40\% loss)
+
+\textbf{Expected Value = (0.5 × 1.5) + (0.5 × 0.6) = 0.75 + 0.30 = 1.05}
+
+This means the expected final balance is \textbf{\$1,050} (5\% expected
+gain per flip).
+
+\subsubsection{2. Expectation vs Reality}\label{expectation-vs-reality}
+
+\textbf{Is the expected value positive or negative?}
+
+The expected value is \textbf{positive} (1.05 \textgreater{} 1.0),
+meaning we expect to gain money on average. However, this doesn't
+guarantee profit in any single simulation due to the high variance of
+the strategy.
+
+\textbf{Key Insight}: While the expected value is positive, the high
+volatility means individual simulations can vary dramatically from this
+expectation.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
 \tightlist
 \item
-  \textbf{Single Coin Flip Strategy}: One flip, win +50\% or lose -40\%
-\item
-  \textbf{Multiple Coin Flips Strategy}: Multiple flips with the same
-  win/loss percentages
+  Single Simulation:
 \end{enumerate}
 
-\textbf{Key Parameters:} - Initial balance: \$1,000 - Win probability:
-50\% (fair coin) - Win multiplier: 1.5 (+50\% gain) - Loss multiplier:
-0.6 (-40\% loss)
+\phantomsection\label{single-simulation-dynamics}
+\begin{verbatim}
+=== SINGLE SIMULATION RESULTS ===
+Initial Balance: $1,000
+Final Balance: $114.79
+Total Change: $-885.21 (-88.5%)
+Wins: 6, Losses: 9
+Win Rate: 40.0%
+Flip Results: LOSS LOSS LOSS LOSS LOSS LOSS WIN WIN WIN WIN WIN LOSS LOSS WIN LOSS
+\end{verbatim}
 
-The code includes analysis functions and visualization tools ready to
-use once you specify the simulation parameters you'd like to test!
+\begin{verbatim}
+
+=== BALANCE DYNAMICS INSIGHTS ===
+Peak Balance: $1,000.00
+Lowest Balance: $46.66
+Largest Single Gain: $118.10
+Largest Single Loss: $-400.00
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/create-balance-visualization-output-2.pdf}}
+
+\begin{verbatim}
+
+=== BALANCE CHANGES SUMMARY ===
+Largest Single Gain: $118.10 (+50.0%)
+Largest Single Loss: $-400.00 (-40.0%)
+Average Change per Flip: $-59.01 (-4.0%)
+Total Gains: $371.41
+Total Losses: $-1,256.62
+Net Change: $-885.21
+\end{verbatim}
+
+We ended up with a net change of \$-885.21. I would not be happy with
+this result, as we were losing more than we expected. With the 15 flips,
+we were definitely unlucky with the amount of times we lost, but it
+showed the law of large numbers at work where if we ran the simulation
+many times, we would get closer to the expected value.
+
+\subsection{100 Simulations Analysis}\label{simulations-analysis}
+
+Now let's run 100 simulations to get a better understanding of the
+distribution of outcomes and create a probability distribution plot of
+final account balances.
+
+\phantomsection\label{hundred-simulations}
+\begin{verbatim}
+Running 100 simulations...
+Completed 100 simulations
+Average final balance: $1,806.09
+Median final balance: $717.45
+Standard deviation: $3,683.99
+Min final balance: $7.35
+Max final balance: $28,025.21
+\end{verbatim}
+
+\begin{verbatim}
+/var/folders/j7/llh6qqjs2pg4w004y7mqkc9m0000gn/T/ipykernel_60117/52686530.py:30: MatplotlibDeprecationWarning:
+
+The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/probability-distribution-analysis-output-2.pdf}}
+
+\phantomsection\label{detailed-statistics-analysis}
+\begin{verbatim}
+=== DETAILED STATISTICAL ANALYSIS ===
+Total Simulations: 100
+Mean Final Balance: $1,806.09
+Median Final Balance: $717.45
+Standard Deviation: $3,683.99
+Min Final Balance: $7.35
+Max Final Balance: $28,025.21
+Win Rate (% above $1000): 34.0%
+Average Loss (when losing): $294.05
+Average Gain (when winning): $4,741.21
+Theoretical Expected Value: $2,078.93
+Actual vs Theoretical: 0.869
+
+=== PERCENTILE ANALYSIS ===
+5th Percentile: $18.37
+10th Percentile: $45.92
+25th Percentile: $114.79
+50th Percentile: $717.45
+75th Percentile: $1,793.61
+90th Percentile: $4,484.03
+95th Percentile: $11,210.08
+
+=== RISK ASSESSMENT ===
+Probability of losing money: 66.0%
+Probability of gaining money: 34.0%
+Largest loss: $-992.65
+Largest gain: $27,025.21
+\end{verbatim}
+
+\begin{verbatim}
+=== PROBABILITY ANALYSIS ===
+Probability of WINNING money: 34.0%
+Probability of LOSING money: 66.0%
+Probability of BREAKING EVEN: 0.0%
+
+=== STANDARD DEVIATION ANALYSIS ===
+Mean Final Balance: $1,806.09
+Standard Deviation: $3,683.99
+Standard Deviation as % of Mean: 204.0%
+
+One Standard Deviation Above Mean: $5,490.07
+One Standard Deviation Below Mean: $-1,877.90
+
+Two Standard Deviations Above Mean: $9,174.06
+Two Standard Deviations Below Mean: $-5,561.89
+
+=== DISTRIBUTION WITHIN STANDARD DEVIATIONS ===
+Simulations within 1 standard deviation: 94.0%
+Simulations within 2 standard deviations: 94.0%
+
+=== GAIN/LOSS PERCENTAGE ANALYSIS ===
+Average Loss (when losing): -70.6%
+Maximum Loss: -99.3%
+Average Gain (when winning): 374.1%
+Maximum Gain: 2702.5%
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/probability-and-standard-deviation-analysis-output-2.pdf}}
+
+\begin{verbatim}
+
+=== KEY INSIGHTS ===
+• The standard deviation is 204.0% of the mean, indicating extremely high volatility
+• Only 0.9% of simulations fall within one standard deviation of the mean
+• The probability of losing money (0.7%) is much higher than winning (0.3%)
+• When you lose, you lose an average of 70.6% of your initial investment
+• When you win, you gain an average of 374.1% of your initial investment
+\end{verbatim}
+
+This time, after the 100 simulations, we were able to gain a lot of
+statistical insight about the distribution of outcomes. The results
+reveal a fascinating paradox: despite having a positive expected value
+of 5\% per flip, most individual simulations actually result in losses.
+This occurs because the high volatility creates extreme outliers that
+pull the average up, while the majority of simulations cluster around
+much lower values. The distribution is heavily right-skewed, showing
+that this strategy behaves more like a lottery ticket - most people
+lose, but a few achieve enormous gains. This counterintuitive result
+perfectly demonstrates why expected value alone is insufficient for
+evaluating investment strategies, and why understanding the full
+distribution of possible outcomes is crucial for making informed
+financial decisions.
+
+Based on our 100 simulations, the probability of ending with an account
+balance over \$1,000 at age 55 is approximately 33\%. This low success
+rate occurs because the strategy's high volatility creates a compounding
+effect where early losses severely reduce the base for future gains. The
+40\% loss multiplier has a more devastating impact than the 50\% gain
+multiplier, as losing 40\% requires a 67\% gain just to break even.
+Additionally, the random nature of coin flips means that unfavorable
+sequences of losses early in the investment period can quickly deplete
+the account balance beyond recovery. The strategy's positive expected
+value is primarily driven by a small number of extremely lucky
+simulations that achieve multiple consecutive wins, while the majority
+of investors experience the harsh reality of compounding losses.
+
+\subsection{Modified Game Strategy
+Analysis}\label{modified-game-strategy-analysis}
+
+Now let's explore a modified version of the game with different betting
+rules to answer the specific questions about the probability of ending
+with over \$10,000 at age 55.
+
+\subsubsection{Modified Game Rules:}\label{modified-game-rules}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Starting balance}: \$1,000
+\item
+  \textbf{Bet amount}: Always 50\% of current account balance
+\item
+  \textbf{Win condition}: +50\% gain on the bet amount (+25\% of total
+  balance)
+\item
+  \textbf{Loss condition}: -40\% loss on the bet amount (-20\% of total
+  balance)
+\item
+  \textbf{Frequency}: Once per year until age 55 (15 flips total)
+\end{itemize}
+
+\phantomsection\label{modified-game-strategy}
+\begin{verbatim}
+Running 100 modified strategy simulations...
+Completed 100 modified simulations
+Average final balance: $1,438.98
+Median final balance: $1,250.00
+Standard deviation: $1,291.16
+Min final balance: $134.22
+Max final balance: $7,450.58
+\end{verbatim}
+
+\begin{verbatim}
+=== MODIFIED STRATEGY PROBABILITY ANALYSIS ===
+Probability of ending above $1,000: 52.0%
+Probability of ending above $10,000: 0.0%
+
+=== COMPARISON WITH ORIGINAL STRATEGY ===
+Original Strategy - Above $1,000: 34.0%
+Modified Strategy - Above $1,000: 52.0%
+
+Original Strategy - Above $10,000: 6.0%
+Modified Strategy - Above $10,000: 0.0%
+
+=== ANSWER TO SPECIFIC QUESTIONS ===
+1. Probability of ending above $10,000 with modified strategy: 0.0%
+2. This probability is LOWER than the original strategy by 6.0%
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-pdf/modified-strategy-analysis-output-2.pdf}}
+
+\begin{verbatim}
+
+=== DETAILED COMPARISON ===
+Modified strategy mean: $1,438.98
+Original strategy mean: $1,806.09
+Modified strategy std: $1,291.16
+Original strategy std: $3,683.99
+
+Simulations ending above $10,000:
+Modified strategy: 0/100
+Original strategy: 6/100
+\end{verbatim}
+
+\subsubsection{Analysis Results}\label{analysis-results}
+
+Based on our 100 simulations of the modified game strategy, we can
+answer the specific questions:
+
+\textbf{Question 1: What is the probability that your account balance
+will be greater than \$10,000 at age 55?}
+
+The probability of ending with an account balance greater than \$10,000
+at age 55 using the modified strategy is approximately 0\%, compared to
+about 6\% for the original strategy.
+
+\textbf{Question 2: Is this probability higher or lower than the
+probability in the original game?}
+
+This probability is 52\% vs 27\% with the original strategy for winning
+money. The modified strategy's 50\% betting rule creates different
+risk-return characteristics compared to the original strategy's
+all-or-nothing approach on each flip.
+
+The modified strategy's requirement to bet exactly 50\% of the current
+balance on each flip creates more moderate compounding effects, which
+can lead to different outcomes in terms of both the probability of
+achieving high balances and the overall distribution of final results.
 
 
 
